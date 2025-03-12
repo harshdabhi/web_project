@@ -13,7 +13,10 @@
     │   ├── migrations
     │   ├── models.py
     │   ├── static
-    │   │   └── style.css
+    │   │   ├── css
+    │   │   │   └── style.css
+    │   │   └── script
+    │   │       └── script.js
     │   ├── templates
     │   │   └── home.html
     │   ├── tests.py
@@ -26,4 +29,4 @@
         ├── urls.py
         └── wsgi.py
 
-8 directories, 19 files
+10 directories, 20 files

@@ -21,7 +21,7 @@ from django.urls import path,include
 
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    #path("admin/", admin.site.urls),
     
     # create more paths based on pages we need to render 
     path("",include("myapp.urls")),
