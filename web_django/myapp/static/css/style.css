@@ -57,7 +57,7 @@ header nav ul li a:hover {
 
 /*Banner*/
 .hero {
-    background-image: url('../images/banner.png'); /*background image*/
+    background-image: url('../image/banner.png'); /*background image*/
     background-size: cover; /*covers the entire area*/
     background-position: center; /*Centers the image*/
     text-align: center; /*Centers text*/
