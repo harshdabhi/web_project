@@ -1,18 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./static/css/style.css">
+<html >
+<head> 
+    <title>ACME Manufacturing Corp</title>  <!--title of the page-->
+    <link rel="stylesheet" href="../static/css/style.css">  <!--link to the css file for the global styling of my page-->
+
 </head>
 <body>
-    <h1>
-        "Let's begin our journey assp"
-    </h1>
-    <button type="button" id="myButton">Button</button>
-    
-    <script src="./static/script/script.js"></script>
-    
+    <header> 
+            <h1>ACME Manufacturing Corp</h1>  <!--title of the web application-->
+         <nav>
+            <!--Menu containing links to different pages-->
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li> <!--link to the homepage-->
+                <li><a href="login.html">Log In</a></li>   <!--link to the login page-->
+            </ul>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <!--main section of the page-->
+        <div class="hero-text">
+            <h2>Welcome to Your Manufacturing Manager</h2>  <!--slogan-->
+            <a href="login.html" class="btn">Log in</a>  <!--button for creating an account-->
+        </div>
+    </section>
+
+    <section class="features">
+    <!--section presenting the features of the web application-->
+    <div class="feature">
+        <h3>Track the status of your machinery</h3>  <!--first feature title-->
+        <p>Monitor the operational status of all your factory machinery in real-time. </p> 
+        <p> Quickly determine whether each piece of equipment is functioning properly or needs attention, helping to reduce downtime.</p>  <!--first feature description-->
+    </div>
+    <div class="feature">
+        <h3>Manage repair requests</h3>  <!--second feature title-->
+        <p> Log and manage repair requests for malfunctioning equipment, complete with notes, images, and updates on their status.</p> 
+        <p> Assign technicians to issues and track their progress until everything is resolved.</p>  <!--second feature description-->
+    </div>
+    <div class="feature">
+        <h3>Monitor operational performance</h3>  <!--third feature title-->
+        <p>Get detailed performance metrics to confirm that all machines are working efficiently. </p> 
+        <p> Leverage historical data to anticipate maintenance needs and enhance overall operations.</p>  <!--third feature description-->
+    </div>
+</section>
+    <footer>
+        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved. </p> 
+    </footer>
 </body>
 </html>
