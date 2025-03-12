@@ -1,0 +1,29 @@
+.
+├── Dockerfile
+├── directory_map.txt
+├── logger.py
+├── requirement.txt
+└── web_django
+    ├── constant
+    ├── db.sqlite3
+    ├── manage.py
+    ├── myapp
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── migrations
+    │   ├── models.py
+    │   ├── static
+    │   │   └── style.css
+    │   ├── templates
+    │   │   └── home.html
+    │   ├── tests.py
+    │   ├── urls.py
+    │   └── views.py
+    ├── requirement.txt
+    └── webdevelop
+        ├── asgi.py
+        ├── settings.py
+        ├── urls.py
+        └── wsgi.py
+
+8 directories, 19 files
