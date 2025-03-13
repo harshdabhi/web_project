@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title> <!--title of the page-->
+    <link rel="stylesheet" href="../static/css/style.css"> <!--link to the css file for the styling of my page-->
+    <style>
+        /*contact page styles*/
+        .contact-container h2 {
+            font-size: 2rem; /*sets the font size of the h2 element*/
+            margin-bottom: 20px; /*adds space below the h2 element*/
+        }
+
+        /*contact form specific styles*/
+        .contact-container form label,
+        .contact-container form input,
+        .contact-container form textarea {
+            font-size: 1rem; /*sets the font size of the form elements*/
+        }
+
+        .contact-container form textarea {
+            resize: none; /*disables resizing of the textarea*/
+        }
+
+    </style>
+</head>
+<body id = "contact-page">
+     <header> 
+        <!--header section containing : the logo and the menu-->
+        <div class="logo">
+            <h1>ACME Manufacturing Corp</h1>  <!--title of the web application-->
+        </div>
+        <nav>
+            <!--Menu containing links to different pages-->
+           <ul class="menu">
+                <li><a href="home.html">Home</a></li> <!--link to the homepage-->
+                <li><a href="login.html">Log In</a></li>   <!--link to the login page-->
+                <li><a href="FAQ.html">FAQ</a></li>   <!--link to the FAQ page-->
+                <li><a href="about.html">About us</a></li>   <!--link to the about us page-->
+                <li><a href="contact.html">Contact</a></li>   <!--link to the contact page-->
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-container">
+         <!--container for the contact form-->
+        <h2>Contact Us</h2> <!--title of the section-->
+        <form id="contact-form"> <!--the user is not redirected to anything because we cannot use javascript yet-->
+            <label for="first-name">First Name</label> <!--label for the first name input field-->
+            <input type="text" name="first-name" id="first-name" required placeholder="Enter your first name"> <!--first name input field-->
+            <label for="last-name">Last Name</label> <!--label for the last name input field-->
+            <input type="text" name="last-name" id="last-name" required placeholder="Enter your last name">  <!--last name input field-->
+            <label for="email">Email</label> <!--label for the email input field-->
+            <input type="email" name="email" id="email" required placeholder="Enter your email">
+            <label for="message">Your Message:</label> <!--label for the message input field-->
+            <textarea name="message" rows="5" id="message" required placeholder="Enter your message, less than 500 words"></textarea> <!--text input-->
+
+            <button type="submit" class="btnsub">Send</button><!--submit button for the form-->
+        </form>
+    </section>
+
+    <footer>
+        <!--footer section for copyright information-->
+        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved. </p>
+    </footer>
+</body>
+</html>
