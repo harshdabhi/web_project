@@ -8,8 +8,14 @@ from django.contrib.auth import authenticate
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from .serializers import UserSerializer
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from rest_framework.parsers import JSONParser
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CustomAuthToken(ObtainAuthToken):
+    parser_classes = [JSONParser]
+    
     @swagger_auto_schema(
         operation_description="Login and obtain an authentication token",
         request_body=openapi.Schema(
@@ -52,8 +58,10 @@ class CustomAuthToken(ObtainAuthToken):
             'groups': groups
         })
 
+@method_decorator(csrf_exempt, name='dispatch')
 class RegisterView(views.APIView):
     permission_classes = [permissions.AllowAny]
+    parser_classes = [JSONParser]
     
     @swagger_auto_schema(
         operation_description="Register a new user",
@@ -122,7 +130,10 @@ class RegisterView(views.APIView):
         
         return Response(response_data, status=status.HTTP_201_CREATED)
 
+@method_decorator(csrf_exempt, name='dispatch')
 class LogoutView(views.APIView):
+    parser_classes = [JSONParser]
+    
     @swagger_auto_schema(
         operation_description="Logout and invalidate the token",
         responses={

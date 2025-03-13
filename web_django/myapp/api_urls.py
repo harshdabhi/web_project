@@ -16,8 +16,7 @@ router.register(r'fault-entries', FaultEntryViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('auth/token/', CustomAuthToken.as_view(), name='api_token_auth'),
+    path('auth/login/', CustomAuthToken.as_view(), name='api_token_auth'),
     path('auth/register/', RegisterView.as_view(), name='api_register'),
     path('auth/logout/', LogoutView.as_view(), name='api_logout'),
 ] 

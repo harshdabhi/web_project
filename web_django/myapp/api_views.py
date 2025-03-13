@@ -11,6 +11,9 @@ from .serializers import (
     MachineStatusSerializer, WarningSerializer, FaultSerializer, 
     FaultEntrySerializer
 )
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
 
 class IsManagerOrReadOnly(permissions.BasePermission):
     def has_permission(self, request, view):
@@ -24,26 +27,32 @@ class IsTechnicianOrRepairOrReadOnly(permissions.BasePermission):
             return True
         return request.user.groups.filter(name__in=['Technician', 'Repair', 'Manager']).exists()
 
+@method_decorator(csrf_exempt, name='dispatch')
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter]
     search_fields = ['username', 'first_name', 'last_name', 'email']
+    parser_classes = [JSONParser]
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CollectionViewSet(viewsets.ModelViewSet):
     queryset = Collection.objects.all()
     serializer_class = CollectionSerializer
     permission_classes = [permissions.IsAuthenticated, IsManagerOrReadOnly]
     filter_backends = [filters.SearchFilter]
     search_fields = ['name']
+    parser_classes = [JSONParser]
 
+@method_decorator(csrf_exempt, name='dispatch')
 class MachineViewSet(viewsets.ModelViewSet):
     queryset = Machine.objects.all().order_by('-importance', 'name')
     serializer_class = MachineSerializer
     permission_classes = [permissions.IsAuthenticated, IsManagerOrReadOnly]
     filter_backends = [filters.SearchFilter]
     search_fields = ['name', 'description']
+    parser_classes = [JSONParser]
     
     def get_queryset(self):
         queryset = Machine.objects.all().order_by('-importance', 'name')
@@ -145,10 +154,12 @@ class MachineViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_404_NOT_FOUND
             )
 
+@method_decorator(csrf_exempt, name='dispatch')
 class WarningViewSet(viewsets.ModelViewSet):
     queryset = Warning.objects.all().order_by('-created_at')
     serializer_class = WarningSerializer
     permission_classes = [permissions.IsAuthenticated, IsTechnicianOrRepairOrReadOnly]
+    parser_classes = [JSONParser]
     
     def get_queryset(self):
         queryset = Warning.objects.all().order_by('-created_at')
@@ -177,12 +188,14 @@ class WarningViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@method_decorator(csrf_exempt, name='dispatch')
 class FaultViewSet(viewsets.ModelViewSet):
     queryset = Fault.objects.all().order_by('-created_at')
     serializer_class = FaultSerializer
     permission_classes = [permissions.IsAuthenticated, IsTechnicianOrRepairOrReadOnly]
     filter_backends = [filters.SearchFilter]
     search_fields = ['title', 'description', 'case_number']
+    parser_classes = [JSONParser]
     
     def get_queryset(self):
         queryset = Fault.objects.all().order_by('-created_at')
@@ -232,10 +245,12 @@ class FaultViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(fault)
         return Response(serializer.data)
 
+@method_decorator(csrf_exempt, name='dispatch')
 class FaultEntryViewSet(viewsets.ModelViewSet):
     queryset = FaultEntry.objects.all().order_by('-created_at')
     serializer_class = FaultEntrySerializer
     permission_classes = [permissions.IsAuthenticated, IsTechnicianOrRepairOrReadOnly]
+    parser_classes = [JSONParser, FormParser, MultiPartParser] 
     
     def get_queryset(self):
         queryset = FaultEntry.objects.all().order_by('-created_at')
