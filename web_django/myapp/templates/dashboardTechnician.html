@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Technician Dashboard - ACME Manufacturing Corp</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body id="technician-dashboard">
+    <header>
+        <h1>Technician Dashboard</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li>                
+                <li><a href="login.html">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="assigned-machines">
+            <h2>Assigned Machines</h2>
+            <div class="filter">
+                <label for="status-filter">Filter by Status:</label>
+                <select id="status-filter" name="status-filter">
+                    <option value="all">All</option>
+                    <option value="ok">OK</option>
+                    <option value="warning">Warning</option>
+                    <option value="fault">Fault</option>
+                </select>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Machine Name</th>
+                            <th>Status</th>
+                            <th>Location</th>
+                            <th>View More</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="machine-item">
+                            <td>Machine 1</td>
+                            <td>OK</td>
+                            <td>Building A</td>
+                            <td><a href="machine1.html" class="btn">View Details</a></td>
+                        </tr>
+                        <tr class="machine-item warning">
+                            <td>Machine 2</td>
+                            <td>Warning</td>
+                            <td>Building B</td>
+                            <td><a href="machine2.html" class="btn">View Details</a></td>
+                        </tr>
+                        <tr class="machine-item fault">
+                            <td>Machine 3</td>
+                            <td>Fault</td>
+                            <td>Building C</td>
+                            <td><a href="machine3.html" class="btn">View Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section id="all-machines">
+                <h2>All Machines</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Machine Name</th>
+                                <th>Status</th>
+                                <th>Location</th>
+                                <th>View More</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="machine-card">
+                                <td>Machine 4</td>
+                                <td>OK</td>
+                                <td>Building C</td>
+                                 <td><a href="machine4.html" class="btn">View Details</a></td>
+                            </tr>
+                            <tr class="machine-card warning">
+                                <td>Machine 5</td>
+                                <td>Warning</td>
+                                <td>Building C</td>
+                                 <td><a href="machine5.html" class="btn">View Details</a></td>
+                            </tr>
+                            <tr class="machine-card fault">
+                                <td>Machine 6</td>
+                                <td>Fault</td>
+                                <td>Building A</td>
+                                 <td><a href="machine6.html" class="btn">View Details</a></td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        <section id="create-fault-case">
+            <h2>Create Fault Case</h2>
+            <form id="fault-form">
+                <label for="machine-name">Machine Name:</label>
+                <input type="text" id="machine-name" name="machine-name" required>
+                
+                <label for="fault-description">Fault Description:</label>
+                <textarea id="fault-description" name="fault-description" rows="4" required></textarea>
+
+                <label for="fault-image">Upload Image (Optional):</label>
+                <input type="file" id="fault-image" name="fault-image">
+
+                <button type="submit" class="btnsub">Submit Fault</button>
+            </form>
+        </section>
+        <section id="fault-cases">
+            <h2>Fault Cases</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Case #</th>
+                            <th>Machine</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>View Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="case-item">
+                            <td>2024-001</td>
+                            <td>Machine 103</td>
+                            <td>2024-03-15</td>
+                            <td>Open</td>
+                            <td><a href="case_detail.html" class="btn">View Case</a></td>
+                        </tr>
+                        <tr class="case-item resolved">
+                            <td>2024-002</td>
+                            <td>Machine 101</td>
+                            <td>2024-03-10</td>
+                            <td>Resolved</td>
+                            <td><a href="case_detail.html" class="btn">View Case</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="warnings">
+            <h2>Machine Warnings</h2>
+            <div class="warning-section">
+                <h3>Current Warnings</h3>
+                <ul>
+                    <li><span>Machine 2</span>: Low oil level</li>
+                    <li><span>Machine 3</span>: High temperature</li>
+                </ul>
+                <div class="add-warning">
+                    <label for="new-warning">Add New Warning:</label>
+                    <input type="text" id="new-warning" name="new-warning" placeholder="Enter warning...">
+                    <button class="btn">Add Warning</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
