@@ -17,7 +17,7 @@ SECRET_KEY = "django-insecure-1i6b^#)^n=v3mb(s8$y+ysh@&!w5@c34$uxjaw3#n350yk!x$$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['web-project-lbcv.onrender.com', 'localhost', '127.0.0.1', '*']
 
 
 # Application definition
@@ -33,17 +33,24 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_yasg",
     "rest_framework.authtoken",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "webdevelop.middleware.DisableCSRFMiddleware",  # Add our custom middleware
 ]
+
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = "webdevelop.urls"
 
@@ -130,6 +137,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CSRF_TRUSTED_ORIGINS = [
     'https://*.web-project-lbcv.onrender.com',
     'https://web-project-lbcv.onrender.com',
+    'https://localhost',
+    'https://127.0.0.1',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
 ]
 
 # Swagger settings
@@ -149,11 +160,20 @@ SWAGGER_SETTINGS = {
 # REST Framework settings
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+    ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
     ],
 }
 
