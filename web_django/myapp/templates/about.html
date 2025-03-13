@@ -1,20 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./static/css/style.css">
+    <title>About - ACME Manufacturing Corp</title> <!--title of the page-->
+    <link rel="stylesheet" href="static/style.css"> <!--link to the css file for the styling of my page--> 
 </head>
 <body>
-    <h1>
-        "Let's begin our journey on about us"
-    </h1>
-    <button type="button" id="myButton">Button</button>
-    
-    <script src="./static/script/script.js"></script>
+    <header> 
+        <!--header section containing : the logo and the menu-->
+            <h1>ACME Manufacturing Corp</h1>  <!--title of the web application-->
+        <nav>
+            <!--Menu containing links to different pages-->
+           <ul class="menu">
+                <li><a href="home.html">Home</a></li> <!--link to the homepage-->
+                <li><a href="login.html">Log In</a></li>   <!--link to the login page-->
+                <li><a href="FAQ.html">FAQ</a></li>   <!--link to the FAQ page-->
+                <li><a href="about.html">About us</a></li>   <!--link to the about us page-->
+                <li><a href="contact.html">Contact</a></li>   <!--link to the contact page-->
+            </ul>
+        </nav>
+    </header>
 
-    <img src="./static/images/download.jpeg" alt="">
-    
+    <section class="hero"></section>
+
+    <section class="abouts">
+        <h2>About The Firm</h2> 
+        <div class="about">
+            <h3>Who are we ?</h3>
+            <p>...</p>
+        </div>
+        <div class="about">
+            <h3>The Web Application</h3> 
+            <p>...</p>
+        </div>
+        <div class="about">
+            <h3>...</h3> 
+            <p>...</p> 
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <h2>Title</h2> 
+        <video controls width="640" height="360">                 <!--video dimension-->
+            <source src="images/video.mp4" type="video/mp4">      <!--video-->
+            Your browser does not support the video tag.          <!--if the browser does not take the video into account-->
+        </video>
+    </section>
+
+    <footer>
+        <!--footer section for copyright information-->
+        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved. </p>
+    </footer>
+
 </body>
 </html>
