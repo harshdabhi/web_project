@@ -145,14 +145,14 @@ h2 {
 }
 
 /*background*/
-#login-page, #contact-page{
+#login-page {
     background-image: url('../images/back.jpg'); /*background image*/
     background-size: cover; /*the background image cover the entire area*/
     background-position: center; /*centers the background image*/
 }
 
 /*container styles*/
-.login-container , .contact-container{
+.login-container {
     background-color: white;
     padding: 40px;
     border-radius: 12px; /* Coins plus arrondis */
@@ -164,8 +164,7 @@ h2 {
 }
 
 /* Ajustement des champs de saisie */
-.login-container input,
-.contact-container input {
+.login-container input {
     width: 100%;
     padding: 12px;
     margin-top: 5px;
@@ -176,7 +175,7 @@ h2 {
 
 
 /* Ajustement des labels */
-.login-container, .contact-container label {
+.login-container label {
     display: block;
     font-weight: bold;
     margin-top: 15px;
@@ -259,3 +258,32 @@ h2 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*adds a shadow around the video*/
 }
 
+/* Contact container */
+.contact-container {
+    background-color: #fff; /* white background for the contact section */
+    margin: 40px auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow for a card-like effect */
+}
+
+.contact-container h2 {
+    font-size: 2rem;
+    color: #333; /* dark color for the heading */
+    margin-bottom: 20px;
+}
+
+/* Contact Info Styles */
+.contact-info {
+    font-size: 1rem; /* normal font size for the contact details */
+    color: #555; /* softer gray for text */
+}
+
+.contact-info p {
+    margin: 10px 0; /* adds space between paragraphs */
+}
+
+.contact-info strong {
+    color: #333; /* dark color for the labels (e.g., "Address") */
+}
