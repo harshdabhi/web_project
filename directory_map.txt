@@ -15,10 +15,17 @@
     │   ├── static
     │   │   ├── css
     │   │   │   └── style.css
-    │   │   └── script
-    │   │       └── script.js
+    │   │   ├── script
+    │   │   │   └── script.js
+    │   │   └── images
+    │   │        └── banner.png
+    │   │        └── back.jpg                 
     │   ├── templates
     │   │   └── home.html
+    │   │   └── about.html
+    │   │   └── contact.html
+    │   │   └── FAQ.html
+    │   │   └── login.html
     │   ├── tests.py
     │   ├── urls.py
     │   └── views.py
