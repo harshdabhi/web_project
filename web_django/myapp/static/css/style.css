@@ -204,3 +204,58 @@ h2 {
 }
 
 
+.about {
+    padding: 40px 20px;
+    max-width: 900px; 
+    margin: 40px auto; 
+    background-color: white;
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.about h2 {
+    font-size: 2.2em; 
+    text-align: center; 
+    color: #333; 
+    margin-bottom: 30px; 
+}
+
+.abouts .about {
+    margin-bottom: 30px; 
+    padding: 20px; 
+    border-left: 4px solid #333; 
+    background-color: #f9f9f9; 
+}
+
+.abouts .about h3 {
+    font-size: 1.8em; 
+    color: #333; 
+    margin-bottom: 10px; 
+}
+
+.abouts .about p {
+    font-size: 1.1em; 
+    margin-bottom: 10px; 
+}
+
+/*video section*/
+
+.video-section {
+    margin: 30px auto; /*vertical spacing and centers*/
+    text-align: center; /*centers the content inside the section*/
+    max-width: 900px; /*sets the maximum width of the section*/
+}
+
+.video-section h2 {
+    font-size: 2em; /*sets the font size for the heading*/
+    color: #2d4a36; /*dark green color to the heading text*/
+    margin-bottom: 20px; /*adds space below the heading*/
+}
+
+.video-section video {
+    width: 100%; /*makes the video take up the full width of its parent*/
+    max-width: 640px; /*sets a maximum width for the video*/
+    border-radius: 8px; /*rounds the corners of the video*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*adds a shadow around the video*/
+}
+
