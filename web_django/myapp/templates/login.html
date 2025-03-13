@@ -30,7 +30,10 @@
     <div class="login-container">
         <!--container for the login form-->
         <h2>Log In</h2>  <!--title of the section-->
-        <form  id="login-form" > <!--the user is not redirected to anything because we cannot use javascript yet-->
+
+        <form  id="login-form" method='POST'> <!--the user is not redirected to anything because we cannot use javascript yet-->
+            <!-- csrf_token only required for post kind of request -->
+            {% csrf_token %} 
             <label for="email">Email</label> <!--label for the email input field-->
             <input type="email" id="email" name="email" required placeholder="Enter your email">
 
