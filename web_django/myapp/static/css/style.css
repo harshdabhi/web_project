@@ -1,4 +1,5 @@
-/*general styling for the web application*/
+/*general styling of the web application*/
+
 body {
     margin: 0; /*removes default margins*/
     padding: 0; /*removes default padding*/
@@ -125,4 +126,164 @@ h2 {
     color: #333; /*dark gray color to the text*/
     margin-bottom: 20px; /*space below the h2 element*/
     text-align: center; /*centers*/
+}
+
+.password-container {
+    width: 100%;
+    display: block;
+    margin-top: 5px;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/*background*/
+#login-page {
+    background-image: url('../images/back.jpg'); /*background image*/
+    background-size: cover; /*the background image cover the entire area*/
+    background-position: center; /*centers the background image*/
+}
+
+/*container styles*/
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px; /* Coins plus arrondis */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
+    width: 90%; /* Largeur responsive */
+    max-width: 400px; /* Taille max */
+    margin: 100px auto; /* Centrage vertical et horizontal */
+    text-align: center;
+}
+
+/* Ajustement des champs de saisie */
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+
+/* Ajustement des labels */
+.login-container label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: left;
+}
+
+
+.btnsub {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.btnsub:hover {
+    background-color: #222; 
+}
+
+
+.about {
+    padding: 40px 20px;
+    max-width: 900px; 
+    margin: 40px auto; 
+    background-color: white;
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.about h2 {
+    font-size: 2.2em; 
+    text-align: center; 
+    color: #333; 
+    margin-bottom: 30px; 
+}
+
+.abouts .about {
+    margin-bottom: 30px; 
+    padding: 20px; 
+    border-left: 4px solid #333; 
+    background-color: #f9f9f9; 
+}
+
+.abouts .about h3 {
+    font-size: 1.8em; 
+    color: #333; 
+    margin-bottom: 10px; 
+}
+
+.abouts .about p {
+    font-size: 1.1em; 
+    margin-bottom: 10px; 
+}
+
+/*video section*/
+
+.video-section {
+    margin: 30px auto; /*vertical spacing and centers*/
+    text-align: center; /*centers the content inside the section*/
+    max-width: 900px; /*sets the maximum width of the section*/
+}
+
+.video-section h2 {
+    font-size: 2em; /*sets the font size for the heading*/
+    color: #2d4a36; /*dark green color to the heading text*/
+    margin-bottom: 20px; /*adds space below the heading*/
+}
+
+.video-section video {
+    width: 100%; /*makes the video take up the full width of its parent*/
+    max-width: 640px; /*sets a maximum width for the video*/
+    border-radius: 8px; /*rounds the corners of the video*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*adds a shadow around the video*/
+}
+
+/* Contact container */
+.contact-container {
+    background-color: #fff; /* white background for the contact section */
+    margin: 40px auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow for a card-like effect */
+}
+
+.contact-container h2 {
+    font-size: 2rem;
+    color: #333; /* dark color for the heading */
+    margin-bottom: 20px;
+}
+
+/* Contact Info Styles */
+.contact-info {
+    font-size: 1rem; /* normal font size for the contact details */
+    color: #555; /* softer gray for text */
+}
+
+.contact-info p {
+    margin: 10px 0; /* adds space between paragraphs */
+}
+
+.contact-info strong {
+    color: #333; /* dark color for the labels (e.g., "Address") */
 }

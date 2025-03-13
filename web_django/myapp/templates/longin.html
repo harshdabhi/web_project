@@ -1,0 +1,50 @@
+!DOCTYPE html>
+    <title>Login - ACME Manufacturing Corp</title> <!--title of the page-->
+    <link rel="stylesheet" href="../static/css/style.css"> <!--link to the css file for the styling of my page-->
+    <style>
+        /*login page styles*/
+        #login-page .login-container h2 {
+            font-size: 2rem; /*sets the font size of the h2 element*/
+        }
+        #login-page .table-container {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body id="login-page">
+    <header> 
+        <!--header section containing : the logo and the menu-->
+            <h1>ACME Manufacturing Corp</h1>  <!--title of the web application-->
+        <nav>
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li> <!--link to the homepage-->
+                <li><a href="login.html">Log In</a></li>   <!--link to the login page-->
+                <li><a href="FAQ.html">FAQ</a></li>   <!--link to the FAQ page-->
+                <li><a href="about.html">About us</a></li>   <!--link to the about us page-->
+                <li><a href="contact.html">Contact</a></li>   <!--link to the contact page-->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <!--container for the login form-->
+        <h2>Log In</h2>  <!--title of the section-->
+        <form  id="login-form" > <!--the user is not redirected to anything because we cannot use javascript yet-->
+            <label for="email">Email</label> <!--label for the email input field-->
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+            <label for="password">Password</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password">
+                </div>
+            <button type="submit" class="btnsub">Log In</button><!--submit button for the form-->
+        </form>
+    </div>
+
+    <footer>
+        <!--footer section for copyright information-->
+        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved. </p>
+    </footer>
+</body>
+</html>
