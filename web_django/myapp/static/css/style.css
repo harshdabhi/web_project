@@ -1,4 +1,5 @@
-/*general styling for the web application*/
+/*general styling of the web application*/
+
 body {
     margin: 0; /*removes default margins*/
     padding: 0; /*removes default padding*/
@@ -126,3 +127,80 @@ h2 {
     margin-bottom: 20px; /*space below the h2 element*/
     text-align: center; /*centers*/
 }
+
+.password-container {
+    width: 100%;
+    display: block;
+    margin-top: 5px;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/*background*/
+#login-page, #contact-page{
+    background-image: url('../images/back.jpg'); /*background image*/
+    background-size: cover; /*the background image cover the entire area*/
+    background-position: center; /*centers the background image*/
+}
+
+/*container styles*/
+.login-container , .contact-container{
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px; /* Coins plus arrondis */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
+    width: 90%; /* Largeur responsive */
+    max-width: 400px; /* Taille max */
+    margin: 100px auto; /* Centrage vertical et horizontal */
+    text-align: center;
+}
+
+/* Ajustement des champs de saisie */
+.login-container input,
+.contact-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+
+/* Ajustement des labels */
+.login-container, .contact-container label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: left;
+}
+
+
+.btnsub {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.btnsub:hover {
+    background-color: #222; 
+}
+
+
