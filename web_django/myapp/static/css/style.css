@@ -146,7 +146,7 @@ h2 {
 }
 
 /*background*/
-#login-page {
+#login-page,#faq-page, #contact-page {
     background-image: url('../images/back.jpg'); /*background image*/
     background-size: cover; /*the background image cover the entire area*/
     background-position: center; /*centers the background image*/
