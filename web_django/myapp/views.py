@@ -19,6 +19,9 @@ def dashboardrepair(request):
 
 def dashboardtechnician(request):
     return render(request, "DashboardTechnician.html")
+    
+def dashboardmanager(request):
+    return render(request, "DashboardManager.html")
 
 def faqs(request):
     return render(request, "FAQ.html")
