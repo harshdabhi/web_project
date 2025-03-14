@@ -29,6 +29,9 @@ def faqs(request):
 def login(request):
     return render(request, "login.html")
 
+def assign(request):
+    return render(request, "assign.html")
+
 
 
 
