@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+    <title>Assignment</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<style>
+    .assign-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px; /* Limit form width */
+            margin: 20px auto; /* Center form */
+        }
+
+        .assign-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .assign-form select,
+        .assign-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .assign-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .assign-form .btn {
+            background-color: #333;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .assign-form .btn:hover {
+            background-color: #222;
+        }
+</style>
+<body>
+    <header>
+        <h1>Manager Assignment</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li>                
+                <li><a href="login.html">Log Out</a></li>
+                <li><a href="dashboardManager.html">Dashboard</a></li>
+                <li><a href="manage.html">Manage Machine</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Assign a Technician or Repair</h2>
+        <form action="#" method="post" class="assign-form">
+            <label for="machine">Select a Machine :</label>
+            <select id="machine" name="machine">
+                <option value="">-- Choose a Machine --</option>
+                <option value="machine1">Machine 1</option>
+                <option value="machine2">Machine 2</option>
+                <option value="machine3">Machine 3</option>
+            </select>
+            
+            <label for="technician">Assign a Technician :</label>
+            <select id="technician" name="technician">
+                <option value="">-- Choose un technicien --</option>
+                <option value="tech1">Technician 1</option>
+                <option value="tech2">Technician 2</option>
+                <option value="tech3">Technician 3</option>
+            </select>
+            
+            <label for="repair">Select a Repair :</label>
+            <select id="repair" name="repair">
+                <option value="">-- Choose a repair --</option>
+                <option value="repair1">Repair 1</option>
+                <option value="repair2">Repair 2</option>
+                <option value="repair3">Repair 3</option>
+            </select>
+            
+            <button type="submit" class="btn">Assign</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
+    </footer>
+</body>
+</html>

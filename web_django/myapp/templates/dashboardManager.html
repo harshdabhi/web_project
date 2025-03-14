@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manager Dashboard - ACME Manufacturing Corp</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body id="manager-dashboard">
+    <header>
+        <h1>Manager Dashboard</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li>                
+                <li><a href="login.html">Log Out</a></li>
+                <li><a href="assign.html">Assign</a></li>
+                <li><a href="manage.html">Manage Machine</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="all-machines">
+                <h2>All Machines</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Machine Name</th>
+                                <th>Status</th>
+                                <th>Location</th>
+                                <th>View More</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="machine-card">
+                                <td>Machine 4</td>
+                                <td>OK</td>
+                                <td>Building C</td>
+                                 <td><a href="machine4.html" class="btn">View Details</a></td>
+                            </tr>
+                            <tr class="machine-card warning">
+                                <td>Machine 5</td>
+                                <td>Warning</td>
+                                <td>Building C</td>
+                                 <td><a href="machine5.html" class="btn">View Details</a></td>
+                            </tr>
+                            <tr class="machine-card fault">
+                                <td>Machine 6</td>
+                                <td>Fault</td>
+                                <td>Building A</td>
+                                 <td><a href="machine6.html" class="btn">View Details</a></td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+        <section id="fault-cases">
+            <h2>Fault Cases</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Case #</th>
+                            <th>Machine</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>View Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="case-item">
+                            <td>2024-001</td>
+                            <td>Machine 103</td>
+                            <td>2024-03-15</td>
+                            <td>Open</td>
+                            <td><a href="case_detail.html" class="btn">View Case</a></td>
+                        </tr>
+                        <tr class="case-item resolved">
+                            <td>2024-002</td>
+                            <td>Machine 101</td>
+                            <td>2024-03-10</td>
+                            <td>Resolved</td>
+                            <td><a href="case_detail.html" class="btn">View Case</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="warnings">
+            <h2>Machine Warnings</h2>
+            <div class="warning-section">
+                <h3>Current Warnings</h3>
+                <ul>
+                    <li><span>Machine 2</span>: Low oil level</li>
+                    <li><span>Machine 3</span>: High temperature</li>
+                </ul>
+        
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
