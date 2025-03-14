@@ -34,7 +34,9 @@
     │   ├── templates
     │   │   ├── FAQ.html
     │   │   ├── about.html
+    │   │   ├── assign.html
     │   │   ├── contact.html
+    │   │   ├── dashboardManager.html
     │   │   ├── dashboardRepair.html
     │   │   ├── dashboardTechnician.html
     │   │   ├── home.html
