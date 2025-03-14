@@ -12,7 +12,6 @@
                 <li><a href="/">Home</a></li>                
                 <li><a href="login">Log Out</a></li>
                 <li><a href="assign">Assign</a></li>
-                <li><a href="manage">Manage Machine</a></li>
             </ul>
         </nav>
     </header>
@@ -95,6 +94,28 @@
                     <li><span>Machine 3</span>: High temperature</li>
                 </ul>
         
+            </div>
+        </section>
+
+        <section id="manage-machines">
+            <h2>Manage Machines</h2>
+            <div class="container">
+                <h3>Add a Machine</h3>
+                <form id="add-machine-form">
+                    <label for="machine-name">Machine Name:</label>
+                    <input type="text" id="machine-name" name="machine-name" required>
+                    <label for="machine-location">Location:</label>
+                    <input type="text" id="machine-location" name="machine-location" required>
+                    <button type="submit" class="btn">Add Machine</button>
+                </form>
+            </div>
+            <div class="container">
+                <h3>Remove a Machine</h3>
+                <form id="remove-machine-form">
+                    <label for="remove-machine-name">Machine Name:</label>
+                    <input type="text" id="remove-machine-name" name="remove-machine-name" required>
+                    <button type="submit" class="btn danger">Remove Machine</button>
+                </form>
             </div>
         </section>
     </main>
