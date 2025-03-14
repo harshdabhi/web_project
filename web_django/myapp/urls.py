@@ -10,5 +10,5 @@ urlpatterns=[
 
     path("dashboardrepair",views.dashboardrepair,name='dashboardrepair'),
     path("dashboardtechnician",views.dashboardtechnician,name='dashboardtechnician'),
-
+    path("dashboardmanager",views.dashboardmanager,name='dashboardmanager'),
 ]
