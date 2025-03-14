@@ -15,13 +15,13 @@ def contact(request):
     return render(request, "contact.html")
 
 def dashboardrepair(request):
-    return render(request, "DashboardRepair.html")
+    return render(request, "dashboardRepair.html")
 
 def dashboardtechnician(request):
-    return render(request, "DashboardTechnician.html")
+    return render(request, "dashboardTechnician.html")
     
 def dashboardmanager(request):
-    return render(request, "DashboardManager.html")
+    return render(request, "dashboardManager.html")
 
 def faqs(request):
     return render(request, "FAQ.html")
