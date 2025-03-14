@@ -118,7 +118,7 @@ footer {
     background: #333; /*dark gray background*/
     color: white; /*text color in white*/
     padding: 10px 0; /*vertical padding*/
-    margin-top: 20px; /*space above the footer*/
+    margin-top: auto; /*space above the footer*/
 }
 
 h2 {
