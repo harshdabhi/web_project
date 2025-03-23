@@ -236,27 +236,6 @@ h2 {
     margin-bottom: 10px; 
 }
 
-/*video section*/
-
-.video-section {
-    margin: 30px auto; /*vertical spacing and centers*/
-    text-align: center; /*centers the content inside the section*/
-    max-width: 900px; /*sets the maximum width of the section*/
-}
-
-.video-section h2 {
-    font-size: 2em; /*sets the font size for the heading*/
-    color: #2d4a36; /*dark green color to the heading text*/
-    margin-bottom: 20px; /*adds space below the heading*/
-}
-
-.video-section video {
-    width: 100%; /*makes the video take up the full width of its parent*/
-    max-width: 640px; /*sets a maximum width for the video*/
-    border-radius: 8px; /*rounds the corners of the video*/
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*adds a shadow around the video*/
-}
-
 /*FAQ page*/
 .faq-container {
     max-width: 900px;
