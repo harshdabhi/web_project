@@ -8,6 +8,7 @@ urlpatterns=[
     path("contact",views.contact,name='contact'),
     path("faqs",views.faqs,name='faqs'),
     path("assign",views.assign,name='assign'),
+    path("logout",views.login,name='logout'),
 
     path("dashboardrepair",views.dashboardrepair,name='dashboardrepair'),
     path("dashboardtechnician",views.dashboardtechnician,name='dashboardtechnician'),
