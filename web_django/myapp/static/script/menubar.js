@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Define menu items
     const menuItems = [
-        { text: "Home", link: "/" },
-        { text: "Log In", link: "login" },
         { text: "FAQ", link: "faqs" },
         { text: "About Us", link: "about" },
         { text: "Contact", link: "contact" }
@@ -43,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             menuList.style.display = "block";
             menuList.style.position = "fixed";
             menuList.style.top = "50px"; // Positioning below the button
-            menuList.style.left = "10px";
+            menuList.style.right = "10px";
             menuList.style.background = "white";
             menuList.style.padding = "10px";
             menuList.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
