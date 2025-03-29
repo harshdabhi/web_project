@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-
+from django.contrib.auth import logout
 
 
 def home(request):
@@ -26,8 +26,30 @@ def dashboardmanager(request):
 def faqs(request):
     return render(request, "FAQ.html")
 
+def machine1(request):
+    return render(request, "machine1.html")
+
+def machine2(request):
+    return render(request, "machine2.html")
+
+def machine3(request):
+    return render(request, "machine3.html")
+
+def machine4(request):
+    return render(request, "machine4.html")
+
+def machine5(request):
+    return render(request, "machine5.html")
+
+def machine6(request):
+    return render(request, "machine6.html")
+    
 def login(request):
     return render(request, "login.html")
+
+def user_logout(request):
+    logout(request)
+    return redirect('home.html')
 
 def assign(request):
     return render(request, "assign.html")
