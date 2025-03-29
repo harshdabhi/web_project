@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Password validation (must contain uppercase, lowercase, special character, and be exactly 10 characters)
         const password = passwordField.value;
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{10}$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{10,}$/;
         
         if (!passwordRegex.test(password)) {
             showError(passwordField, "Password must be 10 characters long and include uppercase, lowercase, and a special character.");
