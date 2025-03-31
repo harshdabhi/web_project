@@ -547,8 +547,9 @@ th {
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
-    right: 10px;
+    right: 0px;
     color: white;
+    position: absolute;
 }
 
 .menu-list {
