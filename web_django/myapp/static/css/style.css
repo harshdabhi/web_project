@@ -30,7 +30,7 @@ header {
 header h1 {
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 30px; /*removes default margins for the title*/
+    margin-left: 10px; /*removes default margins for the title*/
     font-size: 1.8em; /*increases the title size*/
 }
 
