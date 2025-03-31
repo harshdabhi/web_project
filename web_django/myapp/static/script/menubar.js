@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Toggle menu visibility and position below button
     menuButton.addEventListener("click", function () {
+        event.stopPropagation(); 
         if (menuList.style.display === "none" || menuList.style.display === "") {
             menuList.style.display = "block";
             menuList.style.position = "fixed";
