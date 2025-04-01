@@ -1,7 +1,28 @@
-from django.shortcuts import render,HttpResponse
-from django.contrib.auth import logout
+from django.shortcuts import render,HttpResponse, redirect
+from django.contrib.auth import logout, authenticate, login
+from django.contrib import messages
 
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
 
+        if user is not None:
+            auth_login(request, user)
+            if user.groups.filter(name='Repair').exists():
+                return redirect('dashboardrepair')
+            elif user.groups.filter(name='Technician').exists():
+                return redirect('dashboardtechnician')
+            elif user.groups.filter(name='Manager').exists():
+                return redirect('dashboardmanager')
+            else:
+                return redirect('home')
+        else:
+            messages.error(request, "Nom d'utilisateur ou mot de passe incorrect.")
+    
+    return render(request, 'login.html')
+    
 def home(request):
     return render(request,"home.html")
 
@@ -44,8 +65,6 @@ def machine5(request):
 def machine6(request):
     return render(request, "machine6.html")
     
-def login(request):
-    return render(request, "login.html")
 
 def user_logout(request):
     logout(request)
