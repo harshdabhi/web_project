@@ -36,7 +36,7 @@ header h1 {
 
 /*menu*/
 header nav ul {
-    padding-right: 30px;
+    padding-right: 10px;
     list-style-type: none;
     justify-content: center;
     display: flex; /*displays list items in a row*/
@@ -548,6 +548,7 @@ th {
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
+    top: 50%;
     right: 0px;
     color: white;
     position: absolute;
