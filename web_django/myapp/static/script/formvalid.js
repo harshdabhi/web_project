@@ -3,15 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
         let isValid = true;
         
         // Get form fields
-        const emailField = document.getElementById("email");
+        const usernameField = document.getElementById("username");
         const passwordField = document.getElementById("password");
         
         // Remove previous error messages
         document.querySelectorAll(".error-message").forEach(e => e.remove());
 
         // Email validation
-        if (!emailField.value.trim()) {
-            showError(emailField, "Email is required.");
+        if (!usernameField.value.trim()) {
+            showError(usernameField, "Username is required.");
             isValid = false;
         }
 
