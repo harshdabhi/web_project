@@ -31,17 +31,23 @@
         <!--container for the login form-->
         <h2>Log In</h2>  <!--title of the section-->
 
-        <form  id="login-form" method='POST'> <!--the user is not redirected to anything because we cannot use javascript yet-->
-            <!-- csrf_token only required for post kind of request -->
-            {% csrf_token %} 
-            <label for="username">Username</label> <!--label for the email input field-->
-            <input type="username" id="username" name="username" placeholder="Enter your Username">
-
+        <form id="login-form" method="POST">
+            {% csrf_token %}
+            
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your Username" required>
+        
             <label for="password">Password</label>
-            <div class="password-container">
-                <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" required>
+        
+            <button type="submit" class="btnsub">Log In</button>
+            {% if messages %}
+                <div class="error-messages">
+                    {% for message in messages %}
+                        <p style="color: red;">{{ message }}</p>
+                    {% endfor %}
                 </div>
-            <button type="submit" class="btnsub">Log In</button><!--submit button for the form-->
+            {% endif %}
         </form>
     </div>
 
