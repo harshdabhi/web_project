@@ -19,7 +19,7 @@ def login(request):
             else:
                 return redirect('home')
         else:
-            messages.error(request, "Nom d'utilisateur ou mot de passe incorrect.")
+            messages.error(request, "Username or password incorrect.")
     
     return render(request, 'login.html')
     
