@@ -43,7 +43,7 @@ header nav ul {
 }
 
 header nav ul li {
-    margin: 0 30px;
+    margin: 0 10px;
 }
 
 header nav ul li a {
@@ -548,7 +548,7 @@ th {
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
-    top: 50%;
+    top: 5px;
     right: 0px;
     color: white;
     position: absolute;
