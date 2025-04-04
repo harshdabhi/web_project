@@ -123,12 +123,24 @@ export function GetAllWarnings(warningSection) {
               .then((response) => response.json())
                 .then((machine) => {
                     li.innerHTML = `<span>${machine.name}</span>: ${warning.text}`;
+                    // Create a button to remove the warning
+                    const button = document.createElement("button");
+                    button.className = "btn";
+                    button.textContent = "Remove";
+                    button.addEventListener("click", () => removeWarning(warning.id)); // Attach event listener
+                    li.appendChild(button);
                     warningSection.appendChild(li);
                 })
                 .catch((error) => {
                     console.error("Error fetching machine name:", error);
                     // Fallback to using the machine ID if the name cannot be fetched
                     li.innerHTML = `<span>${warning.machine}</span>: ${warning.text}`;
+                    // Create a button to remove the warning
+                    const button = document.createElement("button");
+                    button.className = "btn";
+                    button.textContent = "Remove";
+                    button.addEventListener("click", () => removeWarning(warning.id)); // Attach event listener
+                    li.appendChild(button);
                     warningSection.appendChild(li);
                 }
             );
@@ -143,6 +155,28 @@ export function GetAllWarnings(warningSection) {
         "Error loading machine warnings. Please try again later.";
       warningSection.appendChild(li);
     });
+
+    function  removeWarning(warningId) {
+        fetch(`/api/warnings/${warningId}/`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to remove warning");
+            }
+            
+            // reload the warnings after successful deletion
+            GetAllWarnings(warningSection);
+            
+          })
+          .catch((error) => {
+            console.error("Error removing warning:", error);
+          });
+    }
 }
 
 export function AddAllMachinesToSelect(machineSelect) {
