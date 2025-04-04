@@ -2,26 +2,6 @@ from django.shortcuts import render,HttpResponse, redirect
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 
-def login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            auth_login(request, user)
-            if user.groups.filter(name='Repair').exists():
-                return redirect('dashboardrepair')
-            elif user.groups.filter(name='Technician').exists():
-                return redirect('dashboardtechnician')
-            elif user.groups.filter(name='Manager').exists():
-                return redirect('dashboardmanager')
-            else:
-                return redirect('home')
-        else:
-            messages.error(request, "Username or password incorrect.")
-    
-    return render(request, 'login.html')
     
 def home(request):
     return render(request,"home.html")
