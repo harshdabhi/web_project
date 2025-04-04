@@ -214,7 +214,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         const tbody = document.querySelector("#fault-cases tbody");
 
-        fetch("/api/fault-cases/", {
+        fetch("/api/fault/", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -263,7 +263,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         const warningSection = document.querySelector("#warnings ul");
 
-        fetch("/api/machine-warnings/", {
+        fetch("/api/warnings/", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

@@ -270,7 +270,7 @@ class FaultViewSet(viewsets.ModelViewSet):
                           IsTechnicianOrRepairOrReadOnly]
     filter_backends = [filters.SearchFilter]
     search_fields = ['title', 'description', 'case_number']
-    parser_classes = [JSONParser]
+    parser_classes = [JSONParser, FormParser, MultiPartParser]
 
     def get_queryset(self):
         queryset = Fault.objects.all().order_by('-created_at')
