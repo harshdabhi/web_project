@@ -55,5 +55,44 @@
         <!--footer section for copyright information-->
         <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved. </p>
     </footer>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/api-token-auth/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    localStorage.setItem('auth_token', data.token);
+                    if (data.groups.includes('Manager')) {
+                        window.location.href = '/dashboardmanager'; 
+                    } else if (data.groups.includes('Technician')) {
+                        window.location.href = '/dashboardtechnician';
+                    } else if (data.groups.includes('Repair')) {
+                        window.location.href = '/dashboardrepair';
+                    } else {
+                        window.location.href = '/';
+                    }
+                } else {
+                    document.getElementById('error-message').textContent = 'Invalid credentials. Please try again.';
+                }
+            })
+            .catch(error => {
+                document.getElementById('error-message').textContent = 'An error occurred. Please try again later.';
+            });
+        });
+    </script>
 </body>
 </html>

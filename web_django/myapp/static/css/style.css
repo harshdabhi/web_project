@@ -21,6 +21,7 @@ header {
     color: white;  /*sets text color to white */
     padding: 20px 0; /*adds vertical padding*/
     display: flex; /*uses a flexbox layout*/
+    justify-content: space-between;
     align-items: center; /*centers elements*/
     justify-content: space-between; /*spaces elements*/
 }
@@ -548,8 +549,8 @@ th {
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
-    top: 5px;
     right: 0px;
+    transform: translateY(-50%); 
     color: white;
     position: absolute;
 }
