@@ -39,6 +39,26 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     search_fields = ['username', 'first_name', 'last_name', 'email']
     parser_classes = [JSONParser]
 
+    @swagger_auto_schema(
+        operation_description="Get all users in the Technician group",
+        responses={200: UserSerializer(many=True)}
+    )
+    @action(detail=False, methods=['get'], permission_classes=[permissions.IsAuthenticated])
+    def technicians(self, request):
+        technicians = User.objects.filter(groups__name='Technician')
+        serializer = self.get_serializer(technicians, many=True)
+        return Response(serializer.data)
+    
+    @swagger_auto_schema(
+        operation_description="Get all users in the Repair group",
+        responses={200: UserSerializer(many=True)}
+    )
+    @action(detail=False, methods=['get'], permission_classes=[permissions.IsAuthenticated])
+    def repair(self, request):
+        repair_users = User.objects.filter(groups__name='Repair')
+        serializer = self.get_serializer(repair_users, many=True)
+        return Response(serializer.data)
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class CollectionViewSet(viewsets.ModelViewSet):
@@ -102,7 +122,7 @@ class MachineViewSet(viewsets.ModelViewSet):
             404: "User not found"
         }
     )
-    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated, IsTechnicianOrRepairOrReadOnly])
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated, IsManagerOrReadOnly])
     def assign_technician(self, request, pk=None):
         machine = self.get_object()
         user_id = request.data.get('user_id')
@@ -138,7 +158,7 @@ class MachineViewSet(viewsets.ModelViewSet):
             404: "User not found"
         }
     )
-    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated, IsTechnicianOrRepairOrReadOnly])
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated, IsManagerOrReadOnly])
     def assign_repair(self, request, pk=None):
         machine = self.get_object()
         user_id = request.data.get('user_id')
