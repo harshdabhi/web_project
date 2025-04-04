@@ -1,128 +1,268 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Manager Dashboard - ACME Manufacturing Corp</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-</head>
-<body id="manager-dashboard">
+    <link rel="stylesheet" href="../static/css/style.css" />
+  </head>
+  <body id="manager-dashboard">
     <header>
-        <h1>Manager Dashboard</h1>
-        <nav>
-            <ul class="menu">
-                <li><a href="/">Home</a></li>                
-                <li><a href="logout">Log Out</a></li>
-                <li><a href="assign">Assign</a></li>
-            </ul>
-        </nav>
+      <h1>Manager Dashboard</h1>
+      <nav>
+        <ul class="menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="logout">Log Out</a></li>
+          <li><a href="assign">Assign</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <section id="all-machines">
-                <h2>All Machines</h2>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Machine Name</th>
-                                <th>Status</th>
-                                <th>Location</th>
-                                <th>View More</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="machine-card">
-                                <td>Machine 4</td>
-                                <td>OK</td>
-                                <td>Building C</td>
-                                 <td><a href="machine4" class="btn">View Details</a></td>
-                            </tr>
-                            <tr class="machine-card warning">
-                                <td>Machine 5</td>
-                                <td>Warning</td>
-                                <td>Building C</td>
-                                 <td><a href="machine5" class="btn">View Details</a></td>
-                            </tr>
-                            <tr class="machine-card fault">
-                                <td>Machine 6</td>
-                                <td>Fault</td>
-                                <td>Building A</td>
-                                 <td><a href="machine6" class="btn">View Details</a></td>
-                            </tr>
-                            </tbody>
-                    </table>
-                </div>
-            </section>
+      <section id="all-machines">
+        <h2>All Machines</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Machine Name</th>
+                <th>Status</th>
+                <th>Location</th>
+                <th>View More</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
 
-        <section id="fault-cases">
-            <h2>Fault Cases</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Case #</th>
-                            <th>Machine</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>View Case</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="case-item">
-                            <td>2024-001</td>
-                            <td>Machine 103</td>
-                            <td>2024-03-15</td>
-                            <td>Open</td>
-                            <td><a href="case_detail" class="btn">View Case</a></td>
-                        </tr>
-                        <tr class="case-item resolved">
-                            <td>2024-002</td>
-                            <td>Machine 101</td>
-                            <td>2024-03-10</td>
-                            <td>Resolved</td>
-                            <td><a href="case_detail" class="btn">View Case</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+      <section id="fault-cases">
+        <h2>Fault Cases</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Case #</th>
+                <th>Machine</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>View Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr class="case-item">
+                <td>2024-001</td>
+                <td>Machine 103</td>
+                <td>2024-03-15</td>
+                <td>Open</td>
+                <td><a href="case_detail" class="btn">View Case</a></td>
+              </tr>
+              <tr class="case-item resolved">
+                <td>2024-002</td>
+                <td>Machine 101</td>
+                <td>2024-03-10</td>
+                <td>Resolved</td>
+                <td><a href="case_detail" class="btn">View Case</a></td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-        <section id="warnings">
-            <h2>Machine Warnings</h2>
-            <div class="warning-section">
-                <h3>Current Warnings</h3>
-                <ul>
-                    <li><span>Machine 2</span>: Low oil level</li>
-                    <li><span>Machine 3</span>: High temperature</li>
-                </ul>
-        
-            </div>
-        </section>
+      <section id="warnings">
+        <h2>Machine Warnings</h2>
+        <div class="warning-section">
+          <h3>Current Warnings</h3>
+          <ul>
+            <li><span>Machine 2</span>: Low oil level</li>
+            <li><span>Machine 3</span>: High temperature</li>
+          </ul>
+        </div>
+      </section>
 
-        <section id="manage-machines">
-            <h2>Manage Machines</h2>
-            <div class="container">
-                <h3>Add a Machine</h3>
-                <form id="add-machine-form">
-                    <label for="machine-name">Machine Name:</label>
-                    <input type="text" id="machine-name" name="machine-name" required>
-                    <label for="machine-location">Location:</label>
-                    <input type="text" id="machine-location" name="machine-location" required>
-                    <button type="submit" class="btn">Add Machine</button>
-                </form>
-            </div>
-            <div class="container">
-                <h3>Remove a Machine</h3>
-                <form id="remove-machine-form">
-                    <label for="remove-machine-name">Machine Name:</label>
-                    <input type="text" id="remove-machine-name" name="remove-machine-name" required>
-                    <button type="submit" class="btn danger">Remove Machine</button>
-                </form>
-            </div>
-        </section>
+      <section id="manage-machines">
+        <h2>Manage Machines</h2>
+        <div class="container">
+          <h3>Add a Machine</h3>
+          <form id="add-machine-form">
+            <label for="machine-name">Machine Name:</label>
+            <input type="text" id="machine-name" name="machine-name" required />
+            <label for="machine-location">Location:</label>
+            <input
+              type="text"
+              id="machine-location"
+              name="machine-location"
+              required
+            />
+            <button type="submit" class="btn">Add Machine</button>
+          </form>
+        </div>
+        <div class="container">
+          <h3>Remove a Machine</h3>
+          <form id="remove-machine-form">
+            <label for="remove-machine-name">Machine Name:</label>
+            <input
+              type="text"
+              id="remove-machine-name"
+              name="remove-machine-name"
+              required
+            />
+            <button type="submit" class="btn danger">Remove Machine</button>
+          </form>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
+      <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
     </footer>
-</body>
-</html>
 
+    <script>
+      // Add machine form submission
+      document
+        .getElementById("add-machine-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          const machineName = document.getElementById("machine-name").value;
+          const machineLocation =
+            document.getElementById("machine-location").value;
+          console.log(
+            "Adding machine: Name: ",
+            machineName,
+            ", location: ",
+            machineLocation
+          );
+
+          fetch("/api/machines/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
+            },
+            body: JSON.stringify({
+              name: machineName,
+              location: machineLocation,
+            }),
+          }).then((response) => {
+            if (response.ok) {
+              console.log("Machine added successfully!");
+              // Reload page to reflect changes
+              location.reload();
+            } else {
+              console.error("Error adding machine:", response.statusText);
+            }
+          });
+        });
+
+      // Remove machine form submission
+      document
+        .getElementById("remove-machine-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          const machineName = document.getElementById(
+            "remove-machine-name"
+          ).value;
+          console.log("Removing machine:", machineName); // Log to console for debugging
+
+          // TODO: Implement the remove machine functionality
+        });
+
+      // Fetch all machines and populate the table
+      document.addEventListener("DOMContentLoaded", function () {
+        const tbody = document.querySelector("#all-machines tbody");
+
+        fetch("/api/machines/", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to fetch machines");
+            }
+            return response.json();
+          })
+          .then((machines) => {
+            tbody.innerHTML = ""; // Clear existing rows
+
+            if (machines.length === 0) {
+              const row = document.createElement("tr");
+              row.innerHTML = `<td colspan="4">No machines available.</td>`;
+              tbody.appendChild(row);
+            }
+
+            machines.forEach((machine) => {
+              const row = document.createElement("tr");
+              row.className = `machine-card ${machine.status.toLowerCase()}`;
+
+              row.innerHTML = `
+                                    <td>${machine.name}</td>
+                                    <td>${machine.status}</td>
+                                    <td>${machine.location}</td>
+                                    <td><a href="${machine.details_url}" class="btn">View Details</a></td>
+                                `;
+              tbody.appendChild(row);
+            });
+          })
+          .catch((error) => {
+            console.error("Error loading machines:", error);
+            // display an error message to the user
+            const row = document.createElement("tr");
+            row.innerHTML = `<td colspan="5">Error loading fault cases. Please try again later.</td>`;
+            tbody.appendChild(row);
+          });
+      });
+
+      // Fetch fault cases and populate the table
+      document.addEventListener("DOMContentLoaded", function () {
+        const tbody = document.querySelector("#fault-cases tbody");
+
+        fetch("/api/fault-cases/", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to fetch fault cases");
+            }
+            return response.json();
+          })
+          .then((cases) => {
+            tbody.innerHTML = ""; // Clear existing rows
+
+            if (cases.length === 0) {
+              const row = document.createElement("tr");
+              row.innerHTML = `<td colspan="5">No fault cases available.</td>`;
+              tbody.appendChild(row);
+            }
+
+            cases.forEach((caseItem) => {
+              const row = document.createElement("tr");
+              row.className = `case-item ${caseItem.status.toLowerCase()}`;
+
+              row.innerHTML = `
+                                    <td>${caseItem.case_number}</td>
+                                    <td>${caseItem.machine_name}</td>
+                                    <td>${caseItem.date}</td>
+                                    <td>${caseItem.status}</td>
+                                    <td><a href="${caseItem.details_url}" class="btn">View Case</a></td>
+                                `;
+              tbody.appendChild(row);
+            });
+
+          })
+          .catch((error) => {
+            console.error("Error loading fault cases:", error);
+            // display an error message to the user
+            const row = document.createElement("tr");
+            row.innerHTML = `<td colspan="5">Error loading fault cases. Please try again later.</td>`;
+            tbody.appendChild(row);
+          });
+      });
+    </script>
+  </body>
+</html>
