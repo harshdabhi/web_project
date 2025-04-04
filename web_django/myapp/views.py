@@ -9,6 +9,9 @@ def home(request):
 def about(request):
     return render(request,"about.html")
     
+def login(request):
+    return render(request,"login.html")
+    
 def api_docs(request):
     return render(request, "api_docs.html")
 
