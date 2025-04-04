@@ -88,16 +88,16 @@
           <label for="machine-name">Machine Name:</label>
           <select id="machine-name" name="machine-name" required>
             <option value="">Select Machine</option>
-        </select>
+          </select>
 
-            <label for="fault-title">Fault Title:</label>
-            <input
-              type="text"
-              id="fault-title"
-              name="fault-title"
-              placeholder="Enter fault title"
-              required
-            />
+          <label for="fault-title">Fault Title:</label>
+          <input
+            type="text"
+            id="fault-title"
+            name="fault-title"
+            placeholder="Enter fault title"
+            required
+          />
 
           <label for="fault-description">Fault Description:</label>
           <textarea
@@ -167,7 +167,14 @@
     </footer>
   </body>
 
-  <script>
+  <script type="module">
+    import {
+      AddAllMachinesToSelect,
+      GetAllFaults,
+      GetAllMachines,
+      updateAssignedMachines
+    } from "../static/script/dashboard.js";
+
     // Fetch assigned machines and populate the table
     document.addEventListener("DOMContentLoaded", updateAssignedMachines);
 
@@ -179,222 +186,25 @@
     // Fetch all machines and populate the table
     document.addEventListener("DOMContentLoaded", function () {
       const tbody = document.querySelector("#all-machines tbody");
-
-      fetch("/api/machines/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch machines");
-          }
-          return response.json();
-        })
-        .then((machines) => {
-          tbody.innerHTML = ""; // Clear existing rows
-
-          if (machines == null || machines.length === 0) {
-            const row = document.createElement("tr");
-            row.innerHTML = `<td colspan="4">No machines available.</td>`;
-            tbody.appendChild(row);
-          } else {
-            machines.forEach((machine) => {
-              const row = document.createElement("tr");
-              row.className = `machine-card ${machine.status.toLowerCase()}`;
-
-              row.innerHTML = `
-                                    <td>${machine.name}</td>
-                                    <td>${machine.status}</td>
-                                    <td>${machine.location}</td>
-                                    <td><a href="/machine/${machine.id}" class="btn">View Details</a></td>
-                                `;
-              tbody.appendChild(row);
-            });
-          }
-        })
-        .catch((error) => {
-          console.error("Error loading machines:", error);
-          // display an error message to the user
-          const row = document.createElement("tr");
-          row.innerHTML = `<td colspan="5">Error loading fault cases. Please try again later.</td>`;
-          tbody.appendChild(row);
-        });
+      GetAllMachines(tbody);
     });
 
     // Fetch fault cases and populate the table
     document.addEventListener("DOMContentLoaded", function () {
       const tbody = document.querySelector("#fault-cases tbody");
-
-      // clear the existing rows
-      tbody.innerHTML = ""; // Clear existing rows
-
-      fetch("/api/faults/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch fault cases");
-          }
-          return response.json();
-        })
-        .then((cases) => {
-          if (cases == null || cases.length === 0) {
-            const row = document.createElement("tr");
-            row.innerHTML = `<td colspan="5">No fault cases available.</td>`;
-            tbody.appendChild(row);
-          } else {
-            cases.forEach((caseItem) => {
-              const row = document.createElement("tr");
-              row.className = `case-item ${caseItem.status.toLowerCase()}`;
-
-              row.innerHTML = `
-                                    <td>${caseItem.case_number}</td>
-                                    <td>${caseItem.machine}</td>
-                                    <td>${caseItem.created_at}</td>
-                                    <td>${caseItem.status}</td>
-                                    <td><a href="${caseItem.details_url}" class="btn">View Case</a></td>
-                                `;
-              tbody.appendChild(row);
-            });
-          }
-        })
-        .catch((error) => {
-          console.error("Error loading fault cases:", error);
-          // display an error message to the user
-          const row = document.createElement("tr");
-          row.innerHTML = `<td colspan="5">Error loading fault cases. Please try again later.</td>`;
-          tbody.appendChild(row);
-        });
+      GetAllFaults(tbody);
     });
 
     // Fetch machine warnings and populate the section
     document.addEventListener("DOMContentLoaded", function () {
       const warningSection = document.querySelector("#warnings ul");
-
-      // clear the existing warnings
-      warningSection.innerHTML = ""; // Clear existing warnings
-
-      fetch("/api/warnings/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch machine warnings");
-          }
-          return response.json();
-        })
-        .then((warnings) => {
-          if (warnings == null || warnings.length === 0) {
-            const li = document.createElement("li");
-            li.textContent = "No current warnings.";
-            warningSection.appendChild(li);
-          } else {
-            warnings.forEach((warning) => {
-              const li = document.createElement("li");
-              li.innerHTML = `<span>${warning.machine_name}</span>: ${warning.message}`;
-              warningSection.appendChild(li);
-            });
-          }
-        })
-        .catch((error) => {
-          console.error("Error loading machine warnings:", error);
-          // display an error message to the user
-          const li = document.createElement("li");
-          li.textContent =
-            "Error loading machine warnings. Please try again later.";
-          warningSection.appendChild(li);
-        });
+      GetAllWarnings(warningSection);
     });
 
-    function updateAssignedMachines() {
-      const tbody = document.querySelector("#assigned-machines tbody");
-
-      const user_id = localStorage.getItem("user_id");
-      const statusFilter = document.getElementById("status-filter").value;
-
-      console.log("User ID:", user_id); // Log the user_id for debugging
-
-      // clear the existing rows
-      tbody.innerHTML = "";
-
-      fetch(
-        "/api/machines/assigned_to_user/?user_id=" +
-          user_id +
-          "&status=" +
-          statusFilter,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
-          },
-        }
-      )
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch assigned machines");
-          }
-          return response.json();
-        })
-        .then((machines) => {
-          if (machines == null || machines.length === 0) {
-            const row = document.createElement("tr");
-            row.innerHTML = `<td colspan="4">No assigned machines available.</td>`;
-            tbody.appendChild(row);
-          } else {
-            machines.forEach((machine) => {
-              const row = document.createElement("tr");
-              row.className = `machine-item ${machine.status.toLowerCase()}`;
-
-              row.innerHTML = `
-                                    <td>${machine.name}</td>
-                                    <td>${machine.status}</td>
-                                    <td>${machine.location}</td>
-                                    <td><a href="/machine/${machine.id}" class="btn">View Details</a></td>
-                                `;
-              tbody.appendChild(row);
-            });
-          }
-        })
-        .catch((error) => {
-          console.error("Error loading assigned machines:", error);
-          // display an error message to the user
-          const row = document.createElement("tr");
-          row.innerHTML = `<td colspan="4">Error loading assigned machines. Please try again later.</td>`;
-          tbody.appendChild(row);
-        });
-    }
-    
     // Get all the available machines and add to the select dropdown
-    document.addEventListener('DOMContentLoaded', function() {
-        const machineSelect = document.getElementById('machine-name');
-
-        // Clear existing options
-        machineSelect.innerHTML = '<option value="">-- Choose a Machine --</option>';
-
-        // Fetch machines from the server
-        fetch('/api/machines/')
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(machine => {
-                    const option = document.createElement('option');
-                    option.value = machine.id;
-                    option.textContent = machine.name;
-                    machineSelect.appendChild(option);
-                });
-            })
-            .catch(error => console.error('Error fetching machines:', error));
+    document.addEventListener("DOMContentLoaded", function () {
+      const machineSelect = document.getElementById("machine-name");
+      AddAllMachinesToSelect(machineSelect);
     });
 
     // Handle form submission for creating a fault case
@@ -405,11 +215,10 @@
 
         const machine_id = document.getElementById("machine-name").value;
         const faultTitle = document.getElementById("fault-title").value;
-        const faultDescription = document.getElementById(
-          "fault-description"
-        ).value;
+        const faultDescription =
+          document.getElementById("fault-description").value;
         const faultImage = document.getElementById("fault-image").files[0];
-        const created_by = localStorage.getItem("user_id"); 
+        const created_by = localStorage.getItem("user_id");
 
         const formData = new FormData();
         formData.append("machine", machine_id);
@@ -419,14 +228,14 @@
         if (faultImage) {
           formData.append("image", faultImage); // Append the image file if provided
         }
-        
+
         // Send the form data to the server
         fetch("/api/faults/", {
           method: "POST",
           headers: {
             Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
           },
-          body: formData, 
+          body: formData,
         })
           .then((response) => {
             if (!response.ok) {
@@ -443,6 +252,5 @@
             // Optionally, show an error message to the user
           });
       });
-  
   </script>
 </html>

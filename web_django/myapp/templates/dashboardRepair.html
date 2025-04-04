@@ -145,5 +145,35 @@
         <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
     </footer>
 </body>
+<script type="module">
+    import { GetAllMachines, GetAllFaults, GetAllWarnings, updateAssignedMachines } from '../static/script/dashboard.js';
+
+    // Fetch assigned machines and populate the table
+    document.addEventListener("DOMContentLoaded", updateAssignedMachines);
+
+    // Add event listener to the status filter update the assigned machines
+    document
+      .getElementById("status-filter")
+      .addEventListener("change", updateAssignedMachines);
+
+    // Fetch all machines and populate the table
+    document.addEventListener("DOMContentLoaded", function () {
+      const tbody = document.querySelector("#all-machines tbody");
+      GetAllMachines(tbody);
+    });
+
+    // Fetch fault cases and populate the table
+    document.addEventListener("DOMContentLoaded", function () {
+      const tbody = document.querySelector("#fault-cases tbody");
+      GetAllFaults(tbody);
+    });
+
+    // Fetch machine warnings and populate the section
+    document.addEventListener("DOMContentLoaded", function () {
+      const warningSection = document.querySelector("#warnings ul");
+      GetAllWarnings(warningSection);
+    });
+</script>
+
 </html>
 
