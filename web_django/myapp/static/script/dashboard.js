@@ -116,8 +116,22 @@ export function GetAllWarnings(warningSection) {
       } else {
         warnings.forEach((warning) => {
           const li = document.createElement("li");
-          li.innerHTML = `<span>${warning.machine_name}</span>: ${warning.message}`;
-          warningSection.appendChild(li);
+            // get the machine name from the machine ID
+
+            // fetch the machine name from the server using the machine ID
+            fetch("/api/machines/" + warning.machine + "/")
+              .then((response) => response.json())
+                .then((machine) => {
+                    li.innerHTML = `<span>${machine.name}</span>: ${warning.text}`;
+                    warningSection.appendChild(li);
+                })
+                .catch((error) => {
+                    console.error("Error fetching machine name:", error);
+                    // Fallback to using the machine ID if the name cannot be fetched
+                    li.innerHTML = `<span>${warning.machine}</span>: ${warning.text}`;
+                    warningSection.appendChild(li);
+                }
+            );
         });
       }
     })
