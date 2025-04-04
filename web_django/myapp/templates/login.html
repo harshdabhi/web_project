@@ -4,6 +4,7 @@
     <script src="../static/script/menubar.js"></script>
     <script src="../static/script/eventhandling.js"></script>
     <script src="../static/script/formvalid.js"></script>
+    <script src="../static/script/login.js"></script>
     <style>
         /*login page styles*/
         #login-page .login-container h2 {
@@ -31,7 +32,7 @@
         <!--container for the login form-->
         <h2>Log In</h2>  <!--title of the section-->
 
-        <form id="login-form" method="POST">
+        <form id="login-form" method="POST"> <!--form for the login page-->
             {% csrf_token %}
             
             <label for="username">Username</label>
@@ -57,12 +58,13 @@
     </footer>
     <script>
         document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-
+            // event.preventDefault(); 
+            
+            console.log('Form submitted!'); // Log to console for debugging
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            fetch('/api-token-auth/', {
+            fetch('/api/auth/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

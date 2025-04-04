@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Click Event for the Video Section
-    document.querySelector(".video-section").addEventListener("click", function () {
-        alert("You clicked on the video section!");
-    });
+    // document.querySelector(".video-section").addEventListener("click", function () {
+    //     alert("You clicked on the video section!");
+    // });
 });
