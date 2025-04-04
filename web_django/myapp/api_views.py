@@ -48,7 +48,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
         technicians = User.objects.filter(groups__name='Technician')
         serializer = self.get_serializer(technicians, many=True)
         return Response(serializer.data)
-    
+
     @swagger_auto_schema(
         operation_description="Get all users in the Repair group",
         responses={200: UserSerializer(many=True)}
@@ -105,6 +105,52 @@ class MachineViewSet(viewsets.ModelViewSet):
     def status(self, request):
         machines = self.get_queryset()
         serializer = MachineStatusSerializer(machines, many=True)
+        return Response(serializer.data)
+
+    @swagger_auto_schema(
+        operation_description="Get all machines assigned to a specific user",
+        manual_parameters=[
+            openapi.Parameter(
+                'user_id',
+                openapi.IN_QUERY,
+                description="ID of the user",
+                type=openapi.TYPE_INTEGER,
+                required=True
+            ),
+            openapi.Parameter(
+                'status',
+                openapi.IN_QUERY,
+                description="Filter by machine status",
+                type=openapi.TYPE_STRING,
+                required=False
+            ),
+        ],
+        responses={200: MachineSerializer(many=True)}
+    )
+    @action(detail=False, methods=['get'], permission_classes=[permissions.IsAuthenticated])
+    def assigned_to_user(self, request):
+        user_id = request.query_params.get('user_id', None)
+        status = request.query_params.get('status', None)
+
+        if not user_id:
+            return Response({'error': 'user_id is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if status == "All":
+            status = None
+
+        try:
+            user = User.objects.get(id=user_id)
+        except User.DoesNotExist:
+            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+
+        machines = Machine.objects.filter(
+            Q(assigned_technicians=user) | Q(assigned_repair=user)
+        ).distinct()
+
+        if status:
+            machines = machines.filter(status=status)
+
+        serializer = self.get_serializer(machines, many=True)
         return Response(serializer.data)
 
     @swagger_auto_schema(
@@ -178,7 +224,8 @@ class MachineViewSet(viewsets.ModelViewSet):
                 {'error': 'User not found'},
                 status=status.HTTP_404_NOT_FOUND
             )
-        
+
+
 @method_decorator(csrf_exempt, name='dispatch')
 class WarningViewSet(viewsets.ModelViewSet):
     queryset = Warning.objects.all().order_by('-created_at')
