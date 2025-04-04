@@ -77,11 +77,11 @@
                 if (data.token) {
                     localStorage.setItem('auth_token', data.token);
                     if (data.groups.includes('Manager')) {
-                        window.location.href = '/dashboardManager'; 
+                        window.location.href = '/dashboardmanager'; 
                     } else if (data.groups.includes('Technician')) {
-                        window.location.href = '/dashboardTechnician';
+                        window.location.href = '/dashboardtechnician';
                     } else if (data.groups.includes('Repair')) {
-                        window.location.href = '/dashboardRepair';
+                        window.location.href = '/dashboardrepair';
                     } else {
                         window.location.href = '/';
                     }
