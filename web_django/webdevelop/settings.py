@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+
+#connection to db
 import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
