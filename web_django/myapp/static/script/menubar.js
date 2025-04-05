@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Append elements
     menuContainer.appendChild(menuButton);
     menuContainer.appendChild(menuList);
-    document.querySelector("header").appendChild(menuContainer);
+    document.querySelector(".header-right").appendChild(menuContainer);
     
     // Toggle menu visibility and position below button
     menuButton.addEventListener("click", function (event) {
