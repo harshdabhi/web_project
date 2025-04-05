@@ -3,6 +3,10 @@
 <head>
     <title>Repair Dashboard - ACME Manufacturing Corp</title>
     <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
 </head>
 <body id="repair-dashboard">
     <header>
@@ -58,9 +62,12 @@
                     </tbody>
                 </table>
             </div>
+            <div id="assigned-machines-chart" style="width: 100%; height: 400px;"></div>
+
         </section>
         <section id="all-machines">
                 <h2>All Machines</h2>
+
                 <div class="table-container">
                     <table>
                         <thead>
@@ -93,6 +100,7 @@
                             </tbody>
                     </table>
                 </div>
+                <div id="all-machines-piechart" style="width: 100%; height: 400px;"></div>
             </section>
 
         <section id="fault-cases">
@@ -144,6 +152,9 @@
     <footer>
         <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
     </footer>
+    <script src="../static/script/assigned_machines_chart.js"></script>
+    <script src="../static/script/all_machines_googlechart.js"></script>
+
 </body>
 </html>
 
