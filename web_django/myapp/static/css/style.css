@@ -21,6 +21,7 @@ header {
     color: white;  /*sets text color to white */
     padding: 20px 0; /*adds vertical padding*/
     display: flex; /*uses a flexbox layout*/
+    justify-content: space-between;
     align-items: center; /*centers elements*/
     justify-content: space-between; /*spaces elements*/
 }
@@ -30,20 +31,20 @@ header {
 header h1 {
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 30px; /*removes default margins for the title*/
+    margin-left: 10px; /*removes default margins for the title*/
     font-size: 1.8em; /*increases the title size*/
 }
 
 /*menu*/
 header nav ul {
-    padding-right: 30px;
+    padding-right: 10px;
     list-style-type: none;
     justify-content: center;
     display: flex; /*displays list items in a row*/
 }
 
 header nav ul li {
-    margin: 0 30px;
+    margin: 0 10px;
 }
 
 header nav ul li a {
@@ -194,6 +195,7 @@ h2 {
     width: 100%;
     text-align: center;
     transition: background 0.3s ease;
+    margin-top: 10px;
 }
 
 .btnsub:hover {
@@ -234,27 +236,6 @@ h2 {
 .abouts .about p {
     font-size: 1.1em; 
     margin-bottom: 10px; 
-}
-
-/*video section*/
-
-.video-section {
-    margin: 30px auto; /*vertical spacing and centers*/
-    text-align: center; /*centers the content inside the section*/
-    max-width: 900px; /*sets the maximum width of the section*/
-}
-
-.video-section h2 {
-    font-size: 2em; /*sets the font size for the heading*/
-    color: #2d4a36; /*dark green color to the heading text*/
-    margin-bottom: 20px; /*adds space below the heading*/
-}
-
-.video-section video {
-    width: 100%; /*makes the video take up the full width of its parent*/
-    max-width: 640px; /*sets a maximum width for the video*/
-    border-radius: 8px; /*rounds the corners of the video*/
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*adds a shadow around the video*/
 }
 
 /*FAQ page*/
@@ -568,12 +549,16 @@ th {
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
+    right: 0px;
+    transform: translateY(-50%); 
+    color: white;
+    position: absolute;
 }
 
 .menu-list {
     display: none;
     position: absolute;
-    left: 0;
+    right: 0;
     top: 40px;
     background: white;
     list-style: none;
