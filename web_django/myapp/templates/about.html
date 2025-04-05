@@ -3,19 +3,24 @@
 <head>
     <title>About - ACME Manufacturing Corp</title> <!--title of the page-->
     <link rel="stylesheet" href="../static/css/style.css"> <!--link to the css file for the styling of my page--> 
+    <script src="../static/script/menubar.js"></script>
+    <script src="../static/script/eventhandling.js"></script>
+    <!--for center the image--> 
+    <style>
+        img {
+            display: block;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
     <header> 
-        <!--header section containing : the logo and the menu-->
             <h1>ACME Manufacturing Corp</h1>  <!--title of the web application-->
         <nav>
             <!--Menu containing links to different pages-->
            <ul class="menu">
-                <li><a href="home.html">Home</a></li> <!--link to the homepage-->
-                <li><a href="login.html">Log In</a></li>   <!--link to the login page-->
-                <li><a href="FAQ.html">FAQ</a></li>   <!--link to the FAQ page-->
-                <li><a href="about.html">About us</a></li>   <!--link to the about us page-->
-                <li><a href="contact.html">Contact</a></li>   <!--link to the contact page-->
+                <li><a href="/">Home</a></li> <!--link to the homepage-->
+                <li><a href="login">Log In</a></li>   <!--link to the login page-->
             </ul>
         </nav>
     </header>
@@ -26,26 +31,16 @@
         <h2>About The Firm</h2> 
         <div class="about">
             <h3>Who are we ?</h3>
-            <p>...</p>
+            <p>ACME Manufacturing Corp is specializes in car assembly. ACME Manufacturing has three buildings and six different machines to assemble various parts for car manufacturing. ACME Manufacturing opened in 2001 and now has nearly 1,000 employees.</p>
         </div>
         <div class="about">
             <h3>The Web Application</h3> 
-            <p>...</p>
-        </div>
-        <div class="about">
-            <h3>...</h3> 
-            <p>...</p> 
+            <p>This web application allows each worker at ACME Manufacturing to have a view of the machines and their operating status. It thus facilitates maintenance and monitoring of machine repairs.</p>
         </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="video-section">
-        <h2>Title</h2> 
-        <video controls width="640" height="360">                 <!--video dimension-->
-            <source src="images/video.mp4" type="video/mp4">      <!--video-->
-            Your browser does not support the video tag.          <!--if the browser does not take the video into account-->
-        </video>
-    </section>
+    <h2>Our supply chain</h2>
+    <img src="../static/images/image.jpg" alt="Descriptive text" width="640" height="360">
 
     <footer>
         <!--footer section for copyright information-->

@@ -19,10 +19,10 @@ body {
 header {
     background-color: #333; /*sets a dark gray background color*/
     color: white;  /*sets text color to white */
-    padding: 20px 0; /*adds vertical padding*/
+    padding: 20px 20px; /*adds vertical padding*/
     display: flex; /*uses a flexbox layout*/
+    position: relative;
     align-items: center; /*centers elements*/
-    justify-content: space-between; /*spaces elements*/
 }
 
 
@@ -30,20 +30,27 @@ header {
 header h1 {
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 30px; /*removes default margins for the title*/
+    margin-left: 10px; /*removes default margins for the title*/
     font-size: 1.8em; /*increases the title size*/
+    margin-right: auto; 
 }
 
+
 /*menu*/
+header nav {
+    display: flex;
+    align-items: center;
+}
+
 header nav ul {
-    padding-right: 30px;
+    padding-right: 0px;
     list-style-type: none;
-    justify-content: center;
+    margin: 0;
     display: flex; /*displays list items in a row*/
 }
 
 header nav ul li {
-    margin: 0 30px;
+    margin: 0 10px;
 }
 
 header nav ul li a {
@@ -118,7 +125,7 @@ footer {
     background: #333; /*dark gray background*/
     color: white; /*text color in white*/
     padding: 10px 0; /*vertical padding*/
-    margin-top: 20px; /*space above the footer*/
+    margin-top: auto; /*space above the footer*/
 }
 
 h2 {
@@ -146,7 +153,7 @@ h2 {
 }
 
 /*background*/
-#login-page {
+#login-page,#faq-page, #contact-page {
     background-image: url('../images/back.jpg'); /*background image*/
     background-size: cover; /*the background image cover the entire area*/
     background-position: center; /*centers the background image*/
@@ -194,6 +201,7 @@ h2 {
     width: 100%;
     text-align: center;
     transition: background 0.3s ease;
+    margin-top: 10px;
 }
 
 .btnsub:hover {
@@ -236,27 +244,6 @@ h2 {
     margin-bottom: 10px; 
 }
 
-/*video section*/
-
-.video-section {
-    margin: 30px auto; /*vertical spacing and centers*/
-    text-align: center; /*centers the content inside the section*/
-    max-width: 900px; /*sets the maximum width of the section*/
-}
-
-.video-section h2 {
-    font-size: 2em; /*sets the font size for the heading*/
-    color: #2d4a36; /*dark green color to the heading text*/
-    margin-bottom: 20px; /*adds space below the heading*/
-}
-
-.video-section video {
-    width: 100%; /*makes the video take up the full width of its parent*/
-    max-width: 640px; /*sets a maximum width for the video*/
-    border-radius: 8px; /*rounds the corners of the video*/
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*adds a shadow around the video*/
-}
-
 /*FAQ page*/
 .faq-container {
     max-width: 900px;
@@ -265,6 +252,9 @@ h2 {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .faq-container h2 {
@@ -554,4 +544,106 @@ th {
 /* Section for file uploads */
 #create-fault-case .file-upload-container {
     text-align: center; 
+}
+
+/*Manage machine manager dashboard*/
+#manage-machines {
+    background-color: #fff;
+    padding: 30px 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#manage-machines h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+#manage-machines .container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#manage-machines h3 {
+    margin-top: 0;
+    color: #444;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+#manage-machines form {
+    display: flex;
+    flex-direction: column;
+}
+
+#manage-machines label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+#manage-machines input[type="text"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn.danger {
+    background-color: #c0392b;
+}
+
+.btn.danger:hover {
+    background-color: #e74c3c;
+}
+
+.menu-container {
+    position: absolute; 
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    transform: translateY(-50%); 
+    color: white;
+    position: absolute;
+}
+
+.menu-list {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: white;
+    list-style: none;
+    padding: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-list.active {
+    display: block;
+}
+
+.menu-list li {
+    padding: 10px;
+}
+
+.menu-list li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.menu-list li:hover {
+    background: #f0f0f0;
 }

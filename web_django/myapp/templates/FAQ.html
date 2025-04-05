@@ -3,6 +3,8 @@
 <head>
     <title>FAQ - ACME Manufacturing Corp</title> <!--title of the page-->
     <link rel="stylesheet" href="../static/css/style.css"> <!--link to the css file for the styling of my page--> 
+    <script src="../static/script/menubar.js"></script>
+    <script src="../static/script/eventhandling.js"></script>
 </head>
 <body>
     <header> 
@@ -11,11 +13,8 @@
         <nav>
             <!--Menu containing links to different pages-->
            <ul class="menu">
-                <li><a href="home.html">Home</a></li> <!--link to the homepage-->
-                <li><a href="login.html">Log In</a></li>   <!--link to the login page-->
-                <li><a href="FAQ.html">FAQ</a></li>   <!--link to the FAQ page-->
-                <li><a href="about.html">About us</a></li>   <!--link to the about us page-->
-                <li><a href="contact.html">Contact</a></li>   <!--link to the contact page-->
+                <li><a href="/">Home</a></li> <!--link to the homepage-->
+                <li><a href="login">Log In</a></li>   <!--link to the login page-->
             </ul>
         </nav>
     </header>
@@ -23,27 +22,23 @@
     <section class="faq-container">
         <h2>Frequently Asked Questions</h2>
         <div class="faq">
-            <div class="question">First question?</div>
-            <div class="answer">Answer...</div>
+            <div class="question">How it works?</div>
+            <div class="answer">This web application aims to have a global overview of the machines. Log in and access your Dashboard. If you are a Technician, you can view your assigned machines, report a fault, or issue a warning. If you are Repair you can report a fault as resolved. And if you are a manager, you can access the machine overview, assign technicians and repairs to the machines and manage the machines.</div>
         </div>
         
         <div class="faq">
-            <div class="question">Question 2</div>
-            <div class="answer">answer </div>
+            <div class="question">How to create a Fault ?</div>
+            <div class="answer">To create a fault, you must be a technician. From your dashboard, you can create a fault entry by specifying the machine, a title, a description, and optionally an image of the issue or the machine. This helps facilitate fault management within the factory.</div>
         </div>
         
         <div class="faq">
-            <div class="question">Question tree</div>
-            <div class="answer">Answer</div>
-        </div>
-        
-        <div class="faq">
-            <div class="question">Question 4</div>
-            <div class="answer">Answer</div>
+            <div class="question"> How to add a Warning ?</div>
+            <div class="answer">As a technician, you can add a warning at the bottom of your dashboard. Simply select the desired machine and specify the warning.</div>
         </div>
 
-        <a href="contact.html" class="btnsub">Contact us</a>
+        <a href="contact" class="btnsub">Contact us</a>
     </section>
+    
     
     <footer>
         <!--footer section for copyright information-->

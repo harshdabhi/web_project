@@ -1,0 +1,585 @@
+/*general styling of the web application*/
+
+body {
+    margin: 0; /*removes default margins*/
+    padding: 0; /*removes default padding*/
+    font-family: Times, Times New Roman, serif; /*sets the font*/
+    line-height: 1.6; /*increases line spacing*/
+    background-color: #f5f5f5; /*sets a light gray background color*/
+    color: #333; /*sets text color to dark gray*/
+}
+
+.container {
+    max-width: 1200px; /*limits the container width*/
+    margin: 0 auto; /*centers the container*/
+    padding: 0 20px; /*adds 20px padding on the sides*/
+}
+
+/*Header*/
+header {
+    background-color: #333; /*sets a dark gray background color*/
+    color: white;  /*sets text color to white */
+    padding: 20px 0; /*adds vertical padding*/
+    display: flex; /*uses a flexbox layout*/
+    justify-content: space-between;
+    align-items: center; /*centers elements*/
+    justify-content: space-between; /*spaces elements*/
+}
+
+
+/*title*/
+header h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 10px; /*removes default margins for the title*/
+    font-size: 1.8em; /*increases the title size*/
+}
+
+/*menu*/
+header nav ul {
+    padding-right: 10px;
+    list-style-type: none;
+    justify-content: center;
+    display: flex; /*displays list items in a row*/
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: white; /*sets link text color to white*/
+    text-decoration: none; /* Removes underlines from links */
+    font-weight: bold; /*makes text bold*/
+}
+
+header nav ul li a:hover {
+    text-decoration: underline; /*adds underline on hover*/
+}
+
+/*Banner*/
+.hero {
+    background-image: url('../images/banner.png'); /*background image*/
+    background-size: cover; /*covers the entire area*/
+    background-position: center; /*Centers the image*/
+    text-align: center; /*Centers text*/
+    padding: 100px 20px; /*adds padding*/
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /*adds a shadow for the text*/
+}
+
+.hero h2 {
+    font-size: 2.5em; /*increases the heading font size*/
+    color: #D3D3D3; /*light gray color for better visibility*/
+    margin-bottom: 20px; /*space below the heading*/
+    text-shadow: 16px 16px 40px rgba(0, 0, 0, 0.9); /*shadow*/
+}
+
+
+.hero .btn {
+    background-color: #333; /*Dark gray button*/
+    color: white; /*text color to white*/
+    text-decoration: none; /*removes underline*/
+    padding: 10px 20px; /*adds padding*/
+    border-radius: 5px; /*rounds button corners*/
+    font-size: 1em; /*sets standard text size*/
+    display: inline-block; /*keeps the button inline*/
+}
+
+.hero .btn:hover {
+    background-color: #222; /*Slightly darker shade on hover*/
+}
+
+/*Features section*/
+.features {
+    background: white; /*White background*/
+    padding: 50px 20px; /*padding to the section*/
+    text-align: center; /*centers text*/
+}
+
+.features h2 {
+    color: #333; /*dark gray color for the title*/
+    margin-bottom: 20px; /*space below the title*/
+}
+
+.features .feature {
+    margin-bottom: 20px; /*space between features*/
+}
+
+.features .feature h3 {
+    color: #333; /*dark gray color for feature titles*/
+}
+
+.features .feature p {
+    color: #555; /*dark gray color for text*/
+}
+
+/*footer*/
+footer {
+    text-align: center; /*centers the footer content*/
+    background: #333; /*dark gray background*/
+    color: white; /*text color in white*/
+    padding: 10px 0; /*vertical padding*/
+    margin-top: auto; /*space above the footer*/
+}
+
+h2 {
+    font-size: 2rem; /*the font size of h2 to 2rem*/
+    color: #333; /*dark gray color to the text*/
+    margin-bottom: 20px; /*space below the h2 element*/
+    text-align: center; /*centers*/
+}
+
+/*Password*/
+.password-container {
+    width: 100%;
+    display: block;
+    margin-top: 5px;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/*background*/
+#login-page,#faq-page, #contact-page {
+    background-image: url('../images/back.jpg'); /*background image*/
+    background-size: cover; /*the background image cover the entire area*/
+    background-position: center; /*centers the background image*/
+}
+
+/*LogIn styles*/
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
+    width: 90%; 
+    max-width: 400px; 
+    margin: 100px auto;
+    text-align: center;
+}
+
+
+.login-container input{
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.login-container label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.btnsub {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.btnsub:hover {
+    background-color: #222; 
+}
+
+
+/*About the firm page style*/
+.about {
+    padding: 40px 20px;
+    max-width: 900px; 
+    margin: 40px auto; 
+    background-color: white;
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.about h2 {
+    font-size: 2.2em; 
+    text-align: center; 
+    color: #333; 
+    margin-bottom: 30px; 
+}
+
+.abouts .about {
+    margin-bottom: 30px; 
+    padding: 20px; 
+    border-left: 4px solid #333; 
+    background-color: #f9f9f9; 
+}
+
+.abouts .about h3 {
+    font-size: 1.8em; 
+    color: #333; 
+    margin-bottom: 10px; 
+}
+
+.abouts .about p {
+    font-size: 1.1em; 
+    margin-bottom: 10px; 
+}
+
+/*FAQ page*/
+.faq-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-container h2 {
+    font-size: 2.2em;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #333;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    transition: background 0.3s ease-in-out;
+}
+
+.faq-item:hover {
+    background-color: #f1f1f1;
+}
+
+.faq-item h3 {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Contact container */
+.contact-container {
+    background-color: #fff; 
+    margin: 40px auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h2 {
+    font-size: 2rem;
+    color: #333; 
+    margin-bottom: 20px;
+}
+
+/*Contact info Styles*/
+.contact-info {
+    font-size: 1rem; 
+    color: #555; 
+}
+
+.contact-info p {
+    margin: 10px 0; 
+}
+
+.contact-info strong {
+    color: #333; 
+}
+
+
+/*Technician Dashboard Styles*/
+
+/*Table*/
+.table-container {
+    overflow-x: auto; 
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse; 
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; 
+}
+
+thead {
+    background-color: #f0f0f0; 
+}
+
+th {
+    font-weight: bold;
+}
+
+#assigned-machines .machine-item.warning td {
+    background-color: #fff3cd; 
+}
+
+#assigned-machines .machine-item.fault td {
+    background-color: #f8d7da; 
+}
+
+#all-machines .machine-card.warning td {
+    background-color: #fff3cd;
+}
+
+#all-machines .machine-card.fault td {
+    background-color: #f8d7da;
+}
+
+#fault-cases .case-item.resolved td {
+    background-color: #d1e7dd; 
+}
+
+.btn {
+            background-color: #333;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+.btn:hover {
+    background-color: #555;
+}
+
+#assigned-machines .filter {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#assigned-machines .filter label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#assigned-machines .filter select {
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+/*Warnings Section*/
+#warnings {
+    margin-bottom: 40px;
+}
+
+#warnings h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#warnings .warning-section {
+    background-color: white;
+    padding: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#warnings .warning-section h3 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+#warnings .warning-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#warnings .warning-section ul li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#warnings .add-warning {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#warnings .add-warning input {
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 70%;
+}
+
+#warnings .add-warning button {
+    padding: 8px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#warnings .add-warning button:hover {
+    background-color: #222;
+}
+
+/*Fault section*/
+#create-fault-case {
+    background-color: white; 
+    padding: 40px 20px; 
+    margin: 40px auto; 
+    max-width: 800px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; 
+}
+
+#create-fault-case h2 {
+    font-size: 2rem; 
+    color: #333; 
+    margin-bottom: 20px; 
+    text-align: center;
+}
+
+#create-fault-case form {
+    display: grid;
+    gap: 20px;
+}
+
+#create-fault-case label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+    text-align: left;
+}
+
+#create-fault-case input,
+#create-fault-case textarea,
+#create-fault-case select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#create-fault-case textarea {
+    min-height: 120px; 
+    resize: vertical;
+}
+
+#create-fault-case button {
+    background-color: #333; 
+    color: white; 
+    padding: 12px 20px;
+    font-size: 1rem; 
+    border: none;
+    border-radius: 6px; 
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+#create-fault-case button:hover {
+    background-color: #222;
+}
+
+/* File Input */
+#create-fault-case input[type="file"] {
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#create-fault-case .file-info {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 5px;
+    text-align: center; 
+}
+
+/* Section for file uploads */
+#create-fault-case .file-upload-container {
+    text-align: center; 
+}
+
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    right: 0px;
+    transform: translateY(-50%); 
+    color: white;
+    position: absolute;
+}
+
+.menu-list {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: white;
+    list-style: none;
+    padding: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-list.active {
+    display: block;
+}
+
+.menu-list li {
+    padding: 10px;
+}
+
+.menu-list li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.menu-list li:hover {
+    background: #f0f0f0;
+}

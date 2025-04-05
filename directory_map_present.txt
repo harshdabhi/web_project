@@ -28,17 +28,31 @@
     │   │   ├── images
     │   │   │   ├── back.jpg
     │   │   │   ├── banner.png
+    │   │   │   ├── machine1.jpg
+    │   │   │   ├── machine2.jpg
+    │   │   │   ├── machine3.jpg
+    │   │   │   ├── machine4.jpg
+    │   │   │   ├── machine5.jpg
+    │   │   │   ├── machine6.jpg
     │   │   │   └── download.jpeg
     │   │   └── script
     │   │       └── script.js
     │   ├── templates
     │   │   ├── FAQ.html
     │   │   ├── about.html
+    │   │   ├── assign.html
     │   │   ├── contact.html
+    │   │   ├── dashboardManager.html
     │   │   ├── dashboardRepair.html
     │   │   ├── dashboardTechnician.html
     │   │   ├── home.html
-    │   │   └── login.html
+    │   │   ├── login.html
+    │   │   ├── machine1.html
+    │   │   ├── machine2.html
+    │   │   ├── machine3.html
+    │   │   ├── machine4.html
+    │   │   ├── machine5.html
+    │   │   └── machine6.html
     │   ├── tests.py
     │   ├── urls.py
     │   └── views.py

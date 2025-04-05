@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<head>
+    <title>Assignment</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/script/eventhandling.js"></script>
+</head>
+<style>
+    .assign-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px; /* Limit form width */
+            margin: 20px auto; /* Center form */
+        }
+
+        .assign-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .assign-form select,
+        .assign-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .assign-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .assign-form .btn {
+            background-color: #333;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .assign-form .btn:hover {
+            background-color: #222;
+        }
+</style>
+<body>
+    <header>
+        <h1>Manager Assignment</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>                
+                <li><a href="logout">Log Out</a></li>
+                <li><a href="dashboardmanager">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Assign a Technician or Repair</h2>
+        <form action="#" method="post" class="assign-form">
+            <label for="machine">Select a Machine :</label>
+            <select id="machine" name="machine">
+                <option value="">-- Choose a Machine --</option>
+            </select>
+            
+            <label for="technician">Assign a Technician :</label>
+            <select id="technician" name="technician">
+                <option value="">-- Choose un technicien --</option>
+            </select>
+            
+            <label for="repair">Select a Repair :</label>
+            <select id="repair" name="repair">
+                <option value="">-- Choose a repair --</option>
+            </select>
+            
+            <button type="submit" class="btn">Assign</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
+    </footer>
+</body>
+
+<script type="module">
+    import { AddAllMachinesToSelect } from '../static/script/dashboard.js';
+
+    // Assign a technician or repair to a machine
+    document.querySelector('.assign-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const machine = document.getElementById('machine').value;
+        const technician = document.getElementById('technician').value;
+        const repair = document.getElementById('repair').value;
+
+        // Perform validation checks
+        if (!machine || !technician || !repair) {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        
+
+        const urlTech = '/api/machines/' + machine + '/assign_technician/';
+        const urlRepair = '/api/machines/' + machine + '/assign_repair/';
+
+        fetch(urlTech, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
+            },
+            body: JSON.stringify({
+                "user_id": technician,
+                "id": machine
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status == "technician assigned") {
+            } else {
+                alert('Assignment failed: ' + data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+
+        fetch(urlRepair, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
+            },
+            body: JSON.stringify({ 
+                "user_id": repair,
+                "id": machine
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status == "repair personnel assigned") {
+
+            } else {
+                alert('Assignment failed: ' + data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+
+        alert('Assignment successful!');
+    });
+
+    // Get all the available machines and add to the select dropdown
+    document.addEventListener('DOMContentLoaded', function() {
+        const machineSelect = document.getElementById('machine');
+        const technicianSelect = document.getElementById('technician');
+        const repairSelect = document.getElementById('repair');
+
+        // Clear existing options
+        machineSelect.innerHTML = '<option value="">-- Choose a Machine --</option>';
+        technicianSelect.innerHTML = '<option value="">-- Choose a Technician --</option>';
+        repairSelect.innerHTML = '<option value="">-- Choose a Repair --</option>';
+
+        // Function to add all machines to the select dropdown
+        AddAllMachinesToSelect(machineSelect);
+
+        // Fetch the users from the server
+        fetch('/api/users/technicians/')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(technician => {
+                    const option = document.createElement('option');
+                    option.value = technician.id;
+                    option.textContent = technician.username;
+                    technicianSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching technicians:', error));
+
+        // Fetch repairs from the server
+        fetch('/api/users/repair/')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(repair => {
+                    const option = document.createElement('option');
+                    option.value = repair.id;
+                    option.textContent = repair.username;
+                    repairSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching repairs:', error));
+    });
+</script>
+
+</html>
