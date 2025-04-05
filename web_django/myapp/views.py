@@ -35,25 +35,6 @@ def machine_detail(request, machine_id):
     # You can fetch machine details from the database using the machine_id
     # For now, we will just render a template with the machine_id
     return render(request, "machine.html", {"machine_id": machine_id})
-
-# These are commented out as they are not needed in the current implementation
-# def machine1(request):
-#     return render(request, "machine1.html")
-
-# def machine2(request):
-#     return render(request, "machine2.html")
-
-# def machine3(request):
-#     return render(request, "machine3.html")
-
-# def machine4(request):
-#     return render(request, "machine4.html")
-
-# def machine5(request):
-#     return render(request, "machine5.html")
-
-# def machine6(request):
-#     return render(request, "machine6.html")
     
 
 def user_logout(request):
