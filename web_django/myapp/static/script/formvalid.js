@@ -3,21 +3,21 @@ document.addEventListener("DOMContentLoaded", function () {
         let isValid = true;
         
         // Get form fields
-        const emailField = document.getElementById("email");
+        const usernameField = document.getElementById("username");
         const passwordField = document.getElementById("password");
         
         // Remove previous error messages
         document.querySelectorAll(".error-message").forEach(e => e.remove());
 
         // Email validation
-        if (!emailField.value.trim()) {
-            showError(emailField, "Email is required.");
+        if (!usernameField.value.trim()) {
+            showError(usernameField, "Username is required.");
             isValid = false;
         }
 
         // Password validation (must contain uppercase, lowercase, special character, and be exactly 10 characters)
         const password = passwordField.value;
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{10}$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{10,}$/;
         
         if (!passwordRegex.test(password)) {
             showError(passwordField, "Password must be 10 characters long and include uppercase, lowercase, and a special character.");

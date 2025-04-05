@@ -2,7 +2,9 @@
     <title>Login - ACME Manufacturing Corp</title> <!--title of the page-->
     <link rel="stylesheet" href="../static/css/style.css"> <!--link to the css file for the styling of my page-->
     <script src="../static/script/menubar.js"></script>
+    <script src="../static/script/eventhandling.js"></script>
     <script src="../static/script/formvalid.js"></script>
+    <script src="../static/script/login.js"></script>
     <style>
         /*login page styles*/
         #login-page .login-container h2 {
@@ -22,9 +24,6 @@
             <ul class="menu">
                 <li><a href="/">Home</a></li> <!--link to the homepage-->
                 <li><a href="login">Log In</a></li>   <!--link to the login page-->
-                <li><a href="faqs">FAQ</a></li>   <!--link to the FAQ page-->
-                <li><a href="about">About us</a></li>   <!--link to the about us page-->
-                <li><a href="contact">Contact</a></li>   <!--link to the contact page-->
             </ul>
         </nav>
     </header>
@@ -33,17 +32,23 @@
         <!--container for the login form-->
         <h2>Log In</h2>  <!--title of the section-->
 
-        <form  id="login-form" method='POST'> <!--the user is not redirected to anything because we cannot use javascript yet-->
-            <!-- csrf_token only required for post kind of request -->
-            {% csrf_token %} 
-            <label for="email">Email</label> <!--label for the email input field-->
-            <input type="email" id="email" name="email" placeholder="Enter your email">
-
+        <form id="login-form" method="POST"> <!--form for the login page-->
+            {% csrf_token %}
+            
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your Username" required>
+        
             <label for="password">Password</label>
-            <div class="password-container">
-                <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" required>
+        
+            <button type="submit" class="btnsub">Log In</button>
+            {% if messages %}
+                <div class="error-messages">
+                    {% for message in messages %}
+                        <p style="color: red;">{{ message }}</p>
+                    {% endfor %}
                 </div>
-            <button type="submit" class="btnsub">Log In</button><!--submit button for the form-->
+            {% endif %}
         </form>
     </div>
 
@@ -51,5 +56,46 @@
         <!--footer section for copyright information-->
         <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved. </p>
     </footer>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            // event.preventDefault(); 
+            
+            console.log('Form submitted!'); // Log to console for debugging
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/api/auth/login/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    localStorage.setItem('auth_token', data.token);
+                    localStorage.setItem('user_id', data.user_id);
+                    if (data.groups.includes('Manager')) {
+                        window.location.href = '/dashboardmanager'; 
+                    } else if (data.groups.includes('Technician')) {
+                        window.location.href = '/dashboardtechnician';
+                    } else if (data.groups.includes('Repair')) {
+                        window.location.href = '/dashboardrepair';
+                    } else {
+                        window.location.href = '/';
+                    }
+                } else {
+                    document.getElementById('error-message').textContent = 'Invalid credentials. Please try again.';
+                }
+            })
+            .catch(error => {
+                document.getElementById('error-message').textContent = 'An error occurred. Please try again later.';
+            });
+        });
+    </script>
 </body>
 </html>

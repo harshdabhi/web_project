@@ -1,167 +1,308 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Technician Dashboard - ACME Manufacturing Corp</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-</head>
-<body id="technician-dashboard">
+    <link rel="stylesheet" href="../static/css/style.css" />
+  </head>
+  <body id="technician-dashboard">
     <header>
-        <h1>Technician Dashboard</h1>
-        <nav>
-            <ul class="menu">
-                <li><a href="/">Home</a></li>                
-                <li><a href="login">Log Out</a></li>
-            </ul>
-        </nav>
+      <h1>Technician Dashboard</h1>
+      <nav>
+        <ul class="menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="logout">Log Out</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <section id="assigned-machines">
-            <h2>Assigned Machines</h2>
-            <div class="filter">
-                <label for="status-filter">Filter by Status:</label>
-                <select id="status-filter" name="status-filter">
-                    <option value="all">All</option>
-                    <option value="ok">OK</option>
-                    <option value="warning">Warning</option>
-                    <option value="fault">Fault</option>
-                </select>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Machine Name</th>
-                            <th>Status</th>
-                            <th>Location</th>
-                            <th>View More</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="machine-item">
-                            <td>Machine 1</td>
-                            <td>OK</td>
-                            <td>Building A</td>
-                            <td><a href="machine1.html" class="btn">View Details</a></td>
-                        </tr>
-                        <tr class="machine-item warning">
-                            <td>Machine 2</td>
-                            <td>Warning</td>
-                            <td>Building B</td>
-                            <td><a href="machine2.html" class="btn">View Details</a></td>
-                        </tr>
-                        <tr class="machine-item fault">
-                            <td>Machine 3</td>
-                            <td>Fault</td>
-                            <td>Building C</td>
-                            <td><a href="machine3.html" class="btn">View Details</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-        <section id="all-machines">
-                <h2>All Machines</h2>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Machine Name</th>
-                                <th>Status</th>
-                                <th>Location</th>
-                                <th>View More</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="machine-card">
-                                <td>Machine 4</td>
-                                <td>OK</td>
-                                <td>Building C</td>
-                                 <td><a href="machine4.html" class="btn">View Details</a></td>
-                            </tr>
-                            <tr class="machine-card warning">
-                                <td>Machine 5</td>
-                                <td>Warning</td>
-                                <td>Building C</td>
-                                 <td><a href="machine5.html" class="btn">View Details</a></td>
-                            </tr>
-                            <tr class="machine-card fault">
-                                <td>Machine 6</td>
-                                <td>Fault</td>
-                                <td>Building A</td>
-                                 <td><a href="machine6.html" class="btn">View Details</a></td>
-                            </tr>
-                            </tbody>
-                    </table>
-                </div>
-            </section>
-        <section id="create-fault-case">
-            <h2>Create Fault Case</h2>
-            <form id="fault-form">
-                <label for="machine-name">Machine Name:</label>
-                <input type="text" id="machine-name" name="machine-name" required>
-                
-                <label for="fault-description">Fault Description:</label>
-                <textarea id="fault-description" name="fault-description" rows="4" required></textarea>
+      <section id="assigned-machines">
+        <h2>Assigned Machines</h2>
+        <div class="filter">
+          <label for="status-filter">Filter by Status:</label>
+          <select id="status-filter" name="status-filter">
+            <option value="All">All</option>
+            <option value="OK">OK</option>
+            <option value="WARNING">Warning</option>
+            <option value="FAULT">Fault</option>
+          </select>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Machine Name</th>
+                <th>Status</th>
+                <th>Location</th>
+                <th>View More</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="machine-item">
+                <td>Machine 1</td>
+                <td>OK</td>
+                <td>Building A</td>
+                <td><a href="machine1" class="btn">View Details</a></td>
+              </tr>
+              <tr class="machine-item warning">
+                <td>Machine 2</td>
+                <td>Warning</td>
+                <td>Building B</td>
+                <td><a href="machine2" class="btn">View Details</a></td>
+              </tr>
+              <tr class="machine-item fault">
+                <td>Machine 3</td>
+                <td>Fault</td>
+                <td>Building C</td>
+                <td><a href="machine3" class="btn">View Details</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section id="all-machines">
+        <h2>All Machines</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Machine Name</th>
+                <th>Status</th>
+                <th>Location</th>
+                <th>View More</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="machine-card">
+                <td>Machine 4</td>
+                <td>OK</td>
+                <td>Building C</td>
+                <td><a href="machine4" class="btn">View Details</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section id="create-fault-case">
+        <h2>Create Fault Case</h2>
+        <form id="fault-form">
+          <label for="machine-name">Machine Name:</label>
+          <select id="machine-name" name="machine-name" required>
+            <option value="">Select Machine</option>
+          </select>
 
-                <label for="fault-image">Upload Image (Optional):</label>
-                <input type="file" id="fault-image" name="fault-image">
+          <label for="fault-title">Fault Title:</label>
+          <input
+            type="text"
+            id="fault-title"
+            name="fault-title"
+            placeholder="Enter fault title"
+            required
+          />
 
-                <button type="submit" class="btnsub">Submit Fault</button>
-            </form>
-        </section>
-        <section id="fault-cases">
-            <h2>Fault Cases</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Case #</th>
-                            <th>Machine</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>View Case</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="case-item">
-                            <td>2024-001</td>
-                            <td>Machine 103</td>
-                            <td>2024-03-15</td>
-                            <td>Open</td>
-                            <td><a href="case_detail.html" class="btn">View Case</a></td>
-                        </tr>
-                        <tr class="case-item resolved">
-                            <td>2024-002</td>
-                            <td>Machine 101</td>
-                            <td>2024-03-10</td>
-                            <td>Resolved</td>
-                            <td><a href="case_detail.html" class="btn">View Case</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+          <label for="fault-description">Fault Description:</label>
+          <textarea
+            id="fault-description"
+            name="fault-description"
+            rows="4"
+            placeholder="Describe the fault..."
+            required
+          ></textarea>
 
-        <section id="warnings">
-            <h2>Machine Warnings</h2>
-            <div class="warning-section">
-                <h3>Current Warnings</h3>
-                <ul>
-                    <li><span>Machine 2</span>: Low oil level</li>
-                    <li><span>Machine 3</span>: High temperature</li>
-                </ul>
-                <div class="add-warning">
-                    <label for="new-warning">Add New Warning:</label>
-                    <input type="text" id="new-warning" name="new-warning" placeholder="Enter warning...">
-                    <button class="btn">Add Warning</button>
-                </div>
-            </div>
-        </section>
+          <label for="fault-image">Upload Image (Optional):</label>
+          <input type="file" id="fault-image" name="fault-image" />
+
+          <button type="submit" class="btnsub">Submit Fault</button>
+        </form>
+      </section>
+      <section id="fault-cases">
+        <h2>Fault Cases</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Case #</th>
+                <th>Machine</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>View Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="case-item">
+                <td>2024-001</td>
+                <td>Machine 103</td>
+                <td>2024-03-15</td>
+                <td>Open</td>
+                <td><a href="case_detail" class="btn">View Case</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="warnings">
+        <h2>Machine Warnings</h2>
+        <div class="warning-section">
+          <h3>Current Warnings</h3>
+          <ul>
+            <li><span>Machine 2</span>: Low oil level</li>
+            <li><span>Machine 3</span>: High temperature</li>
+          </ul>
+          <div class="add-warning">
+            <label for="new-warning">Add New Warning:</label>
+            <label for="machine-name-2">Machine Name:</label>
+            <select id="machine-name-2" name="machine-name" required>
+              <option value="">Select Machine</option>
+            </select>
+            <input
+              type="text"
+              id="new-warning"
+              name="new-warning"
+              placeholder="Enter warning..."
+            />
+            <button class="btn">Add Warning</button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
+      <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
     </footer>
-</body>
-</html>
+  </body>
 
+  <script type="module">
+      import {
+        AddAllMachinesToSelect,
+        GetAllFaults,
+        GetAllMachines,
+        GetAllWarnings,
+        updateAssignedMachines,
+      } from "../static/script/dashboard.js";
+
+      // Fetch assigned machines and populate the table
+      document.addEventListener("DOMContentLoaded", updateAssignedMachines);
+
+      // Add event listener to the status filter update the assigned machines
+      document
+        .getElementById("status-filter")
+        .addEventListener("change", updateAssignedMachines);
+
+      // Fetch all machines and populate the table
+      document.addEventListener("DOMContentLoaded", function () {
+        const tbody = document.querySelector("#all-machines tbody");
+        GetAllMachines(tbody);
+      });
+
+      // Fetch fault cases and populate the table
+      document.addEventListener("DOMContentLoaded", function () {
+        const tbody = document.querySelector("#fault-cases tbody");
+        GetAllFaults(tbody);
+      });
+
+      // Fetch machine warnings and populate the section
+      document.addEventListener("DOMContentLoaded", function () {
+        const warningSection = document.querySelector("#warnings ul");
+        GetAllWarnings(warningSection);
+      });
+
+      // Get all the available machines and add to the select dropdown
+      document.addEventListener("DOMContentLoaded", function () {
+        const machineSelect = document.getElementById("machine-name");
+        AddAllMachinesToSelect(machineSelect);
+      });
+
+      // Handle form submission for creating a fault case
+      document
+        .getElementById("fault-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          const machine_id = document.getElementById("machine-name").value;
+          const faultTitle = document.getElementById("fault-title").value;
+          const faultDescription =
+            document.getElementById("fault-description").value;
+          const faultImage = document.getElementById("fault-image").files[0];
+          const created_by = localStorage.getItem("user_id");
+
+          const formData = new FormData();
+          formData.append("machine", machine_id);
+          formData.append("title", faultTitle);
+          formData.append("description", faultDescription);
+          formData.append("created_by", created_by); // Add the created_by field
+          if (faultImage) {
+            formData.append("image", faultImage); // Append the image file if provided
+          }
+
+          // Send the form data to the server
+          fetch("/api/faults/", {
+            method: "POST",
+            headers: {
+              Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
+            },
+            body: formData,
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Failed to create fault case");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("Fault case created:", data);
+              // Optionally, refresh the fault cases table or show a success message
+            })
+            .catch((error) => {
+              console.error("Error creating fault case:", error);
+              // Optionally, show an error message to the user
+            });
+        });
+
+        // Get all the available machines and add to the select dropdown
+      document.addEventListener("DOMContentLoaded", function () {
+        const machineSelect = document.getElementById("machine-name-2");
+        AddAllMachinesToSelect(machineSelect);
+      });
+
+        // Add warning button event listener
+      document
+        .querySelector(".add-warning .btn")
+        .addEventListener("click", function () {
+          event.preventDefault(); // Prevent the default form submission
+
+          const warning_msg = document.querySelector("#new-warning").value;
+          const machine_id = document.querySelector("#machine-name-2").value;
+          const created_by = localStorage.getItem("user_id");
+
+          // Send the form data to the server
+           // Send the form data to the server
+          fetch("/api/warnings/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Token ${localStorage.getItem("auth_token")}`, // Use the token stored in localStorage
+            },
+            body: JSON.stringify({
+              machine: machine_id,
+              text: warning_msg,
+              created_by: created_by,
+            }),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Failed to create warning");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("Warning created:", data);
+              // reload the page to reflect changes
+              location.reload();
+            })
+            .catch((error) => {
+              console.error("Error creating Warning:", error);
+            });
+
+        });
+  </script>
+</html>

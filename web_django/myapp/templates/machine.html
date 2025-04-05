@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+    <title>Machine Details</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/script/eventhandling.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Machine Details</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>                
+                <li><a href="logout">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about">
+        <h2>Machine Information</h2>
+        <div class="abouts">
+            <div class="about">
+                <h3>Name: <span id="machine-name"></span></h3>
+                <p><strong>Model:</strong> <span id="machine-model"></span> </p>
+                <img src="../static/images/machine1.jpg" alt="Press Machine" style="width:100%; max-width:600px; border-radius:8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top:20px;">
+                <p style="margin-top: 20px;">
+                    <strong>Description:</strong> <span id="machine-description"></span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-container">
+        <h2>Fault History</h2>
+        <div id="faq-list">
+            <div class="faq-item">
+                <h3>15/01/2025 - Hydraulic Pressure Failure</h3>
+                <p>Issue detected in the hydraulic system causing low pressure during operations. Resolved by replacing the faulty valve.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ACME Manufacturing Corp. All rights reserved.</p>
+    </footer>
+</body>
+
+<script>
+    // JavaScript to dynamically fill machine details using the /machine/<id>
+    document.addEventListener('DOMContentLoaded', function() {
+        const machine_id = "{{ machine_id }}";
+
+        // Get the HTML elements to fill in the machine details
+        const machine_name = document.getElementById('machine-name');
+        const machine_model = document.getElementById('machine-model');
+        const machine_desc = document.getElementById('machine-description');
+        const faqList = document.getElementById('faq-list');
+
+
+        // Fetch machine details from the server using the machine_id
+        fetch(`/api/machines/${machine_id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Fill in the machine details in the HTML elements
+                machine_name.innerText = data.name;
+                machine_model.innerText = data.model;
+                machine_desc.innerText = data.description;
+
+                // Populate the fault history dynamically
+                const faultHistory = data.fault_history; // Assuming the API returns fault history
+
+                faqList.innerHTML = ''; // Clear existing fault history
+                if (faultHistory == null || faultHistory.length === 0) {
+                    faqList.innerHTML = '<p>No fault history.</p>';
+                } else {
+                    faultHistory.forEach(fault => {
+                    const faqItem = document.createElement('div');
+                    faqItem.className = 'faq-item';
+                    faqItem.innerHTML = `<h3>${fault.date} - ${fault.issue}</h3><p>${fault.resolution}</p>`;
+                    faqList.appendChild(faqItem);
+                    });
+                }                
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    });
+</script>
+
+</html>
