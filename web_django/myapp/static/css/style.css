@@ -19,11 +19,10 @@ body {
 header {
     background-color: #333; /*sets a dark gray background color*/
     color: white;  /*sets text color to white */
-    padding: 20px 0; /*adds vertical padding*/
+    padding: 20px 20px; /*adds vertical padding*/
     display: flex; /*uses a flexbox layout*/
-    justify-content: space-between;
+    position: relative;
     align-items: center; /*centers elements*/
-    justify-content: space-between; /*spaces elements*/
 }
 
 
@@ -33,13 +32,20 @@ header h1 {
     margin-bottom: 0;
     margin-left: 10px; /*removes default margins for the title*/
     font-size: 1.8em; /*increases the title size*/
+    margin-right: auto; 
 }
 
+
 /*menu*/
+header nav {
+    display: flex;
+    align-items: center;
+}
+
 header nav ul {
-    padding-right: 10px;
+    padding-right: 0px;
     list-style-type: none;
-    justify-content: center;
+    margin: 0;
     display: flex; /*displays list items in a row*/
 }
 
@@ -246,6 +252,9 @@ h2 {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .faq-container h2 {
@@ -537,10 +546,66 @@ th {
     text-align: center; 
 }
 
+/*Manage machine manager dashboard*/
+#manage-machines {
+    background-color: #fff;
+    padding: 30px 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#manage-machines h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+#manage-machines .container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#manage-machines h3 {
+    margin-top: 0;
+    color: #444;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+#manage-machines form {
+    display: flex;
+    flex-direction: column;
+}
+
+#manage-machines label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+#manage-machines input[type="text"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn.danger {
+    background-color: #c0392b;
+}
+
+.btn.danger:hover {
+    background-color: #e74c3c;
+}
 
 .menu-container {
-    position: relative;
-    display: inline-block;
+    position: absolute; 
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
 }
 
 .menu-button {
@@ -549,7 +614,6 @@ th {
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
-    right: 0px;
     transform: translateY(-50%); 
     color: white;
     position: absolute;

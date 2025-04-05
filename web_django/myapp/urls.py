@@ -15,15 +15,7 @@ urlpatterns=[
     path("dashboardmanager",views.dashboardmanager,name='dashboardmanager'),
 
     # Add path for machine/<int:machine_id> URL pattern
-    path("machine/<int:machine_id>", views.machine_detail, name='machine_detail'),
-
-    # THis is wrong and should be removed
-    # path("machine1",views.machine1,name='machine1'),
-    # path("machine2",views.machine2,name='machine2'),
-    # path("machine3",views.machine3,name='machine3'),
-    # path("machine4",views.machine4,name='machine4'),
-    # path("machine5",views.machine5,name='machine5'),
-    # path("machine6",views.machine6,name='machine6'),
+    path("machine/<int:machine_id>", views.machine_detail, name='machine_detail')
 
 
 ]
