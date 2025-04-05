@@ -19,11 +19,10 @@ body {
 header {
     background-color: #333; /*sets a dark gray background color*/
     color: white;  /*sets text color to white */
-    padding: 20px 0; /*adds vertical padding*/
+    padding: 20px; /*adds vertical padding*/
     display: flex; /*uses a flexbox layout*/
     justify-content: space-between;
     align-items: center; /*centers elements*/
-    justify-content: space-between; /*spaces elements*/
 }
 
 
@@ -34,6 +33,7 @@ header h1 {
     margin-left: 10px; /*removes default margins for the title*/
     font-size: 1.8em; /*increases the title size*/
 }
+
 
 /*menu*/
 header nav ul {
